@@ -358,7 +358,7 @@ def translate_message(msg: dict) -> dict:
     message_type = classify_message_type(label, text)
 
     parsed: dict | None = None
-    if message_type == 'position' or (label == 'H1' and 'POS' in text.upper()):
+    if message_type == 'position':
         parsed = parse_position_report(text)
     elif message_type == 'engine_data':
         parsed = parse_engine_data(text)

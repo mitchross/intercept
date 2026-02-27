@@ -131,7 +131,7 @@ def stream_acars_output(process: subprocess.Popen, is_text_mode: bool = False) -
                     data['message_type'] = translation['message_type']
                     data['parsed'] = translation['parsed']
                 except Exception:
-                    pass
+                    logger.debug("ACARS enrichment failed", exc_info=True)
 
                 # Update stats
                 acars_message_count += 1
@@ -144,7 +144,7 @@ def stream_acars_output(process: subprocess.Popen, is_text_mode: bool = False) -
                     from utils.flight_correlator import get_flight_correlator
                     get_flight_correlator().add_acars_message(data)
                 except Exception:
-                    pass
+                    logger.debug("ACARS flight correlator update failed", exc_info=True)
 
                 # Log if enabled
                 if app_module.logging_enabled:
@@ -153,7 +153,7 @@ def stream_acars_output(process: subprocess.Popen, is_text_mode: bool = False) -
                             ts = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                             f.write(f"{ts} | ACARS | {json.dumps(data)}\n")
                     except Exception:
-                        pass
+                        logger.debug("ACARS file logging failed", exc_info=True)
 
             except json.JSONDecodeError:
                 # Not JSON - could be status message
