@@ -14,7 +14,7 @@
             <div style="display: flex; gap: 4px;">
                 <button class="preset-btn morseDetectBtn" id="morseDetectGoertzel"
                         onclick="MorseMode.setDetectMode('goertzel')"
-                        style="flex: 1; background: var(--accent); color: #000;">CW Tone</button>
+                        style="flex: 1; background: var(--accent); color: var(--text-inverse);">CW Tone</button>
                 <button class="preset-btn morseDetectBtn" id="morseDetectEnvelope"
                         onclick="MorseMode.setDetectMode('envelope')"
                         style="flex: 1;">OOK Envelope</button>
@@ -29,12 +29,12 @@
     <div class="section">
         <h3>Frequency</h3>
         <div class="form-group">
-            <label>Frequency (MHz)</label>
-            <input type="number" id="morseFrequency" value="14.060" step="0.001" min="0.5" max="1766" placeholder="e.g., 14.060">
+            <label for="morseFrequency">Frequency (MHz)</label>
+            <input type="number" id="morseFrequency" value="14.060" step="0.001" min="0.5" max="1766" placeholder="e.g., 14.060" aria-required="true">
             <span class="help-text morse-help-text">Enter CW center frequency in MHz (e.g., 7.030 for 40m).</span>
         </div>
         <div class="form-group">
-            <label>Band Presets</label>
+            <label id="morseBandPresetsLabel">Band Presets</label>
             <div class="morse-presets" id="morseHFPresets">
                 <button class="preset-btn" onclick="MorseMode.setFreq(3.560)">80m</button>
                 <button class="preset-btn" onclick="MorseMode.setFreq(7.030)">40m</button>
@@ -58,11 +58,11 @@
     <div class="section">
         <h3>Device</h3>
         <div class="form-group">
-            <label>Gain (dB)</label>
+            <label for="morseGain">Gain (dB)</label>
             <input type="number" id="morseGain" value="40" step="1" min="0" max="60">
         </div>
         <div class="form-group">
-            <label>PPM Correction</label>
+            <label for="morsePPM">PPM Correction</label>
             <input type="number" id="morsePPM" value="0" step="1" min="-200" max="200">
         </div>
     </div>
@@ -70,12 +70,12 @@
     <div class="section" id="morseToneFreqGroup">
         <h3>CW Detector</h3>
         <div class="form-group">
-            <label>Tone Frequency: <span id="morseToneFreqLabel">700</span> Hz</label>
+            <label for="morseToneFreq">Tone Frequency: <span id="morseToneFreqLabel">700</span> Hz</label>
             <input type="range" id="morseToneFreq" value="700" min="300" max="1200" step="10"
                    oninput="MorseMode.updateToneLabel(this.value)">
         </div>
         <div class="form-group">
-            <label>Bandwidth</label>
+            <label for="morseBandwidth">Bandwidth</label>
             <select id="morseBandwidth">
                 <option value="50">50 Hz</option>
                 <option value="100">100 Hz</option>
@@ -92,37 +92,37 @@
     <div class="section">
         <h3>Threshold + WPM</h3>
         <div class="form-group">
-            <label>Threshold Mode</label>
+            <label for="morseThresholdMode">Threshold Mode</label>
             <select id="morseThresholdMode" onchange="MorseMode.onThresholdModeChange()">
                 <option value="auto" selected>Auto</option>
                 <option value="manual">Manual</option>
             </select>
         </div>
         <div class="form-group" id="morseThresholdAutoRow">
-            <label>Threshold Multiplier</label>
+            <label for="morseThresholdMultiplier">Threshold Multiplier</label>
             <input type="number" id="morseThresholdMultiplier" value="2.8" min="1.1" max="8" step="0.1">
         </div>
         <div class="form-group" id="morseThresholdOffsetRow">
-            <label>Threshold Offset</label>
+            <label for="morseThresholdOffset">Threshold Offset</label>
             <input type="number" id="morseThresholdOffset" value="0" min="0" step="0.1">
         </div>
         <div class="form-group" id="morseManualThresholdRow" style="display: none;">
-            <label>Manual Threshold</label>
+            <label for="morseManualThreshold">Manual Threshold</label>
             <input type="number" id="morseManualThreshold" value="0" min="0" step="0.1">
         </div>
         <div class="form-group">
-            <label>Minimum Signal Gate</label>
+            <label for="morseSignalGate">Minimum Signal Gate</label>
             <input type="number" id="morseSignalGate" value="0.05" min="0" max="1" step="0.01">
         </div>
         <div class="form-group">
-            <label>WPM Mode</label>
+            <label for="morseWpmMode">WPM Mode</label>
             <select id="morseWpmMode" onchange="MorseMode.onWpmModeChange()">
                 <option value="auto" selected>Auto</option>
                 <option value="manual">Manual</option>
             </select>
         </div>
         <div class="form-group" id="morseWpmManualRow" style="display: none;">
-            <label>Manual Speed: <span id="morseWpmLabel">15</span> WPM</label>
+            <label for="morseWpm">Manual Speed: <span id="morseWpmLabel">15</span> WPM</label>
             <input type="range" id="morseWpm" value="15" min="5" max="50" step="1"
                    oninput="MorseMode.updateWpmLabel(this.value)">
         </div>
@@ -145,7 +145,7 @@
     <div class="section">
         <h3>Decode WAV File</h3>
         <div class="morse-file-row">
-            <input type="file" id="morseFileInput" accept="audio/wav,.wav">
+            <input type="file" id="morseFileInput" accept="audio/wav,.wav" aria-label="WAV file for Morse decoding">
             <button class="btn btn-sm btn-ghost" id="morseDecodeFileBtn" onclick="MorseMode.decodeFile()">Decode File</button>
         </div>
         <span class="help-text morse-help-text">Runs the same CW decoder pipeline against uploaded WAV audio.</span>
@@ -186,7 +186,7 @@
         </p>
     </div>
     <div class="section" id="morseEnvelopeNote" style="display: none;">
-        <p class="info-text" style="font-size: 11px; color: #ffaa00; line-height: 1.5;">
+        <p class="info-text" style="font-size: 11px; color: var(--accent-orange); line-height: 1.5;">
             OOK Envelope mode uses AM demodulation to detect carrier on/off keying.
             Suitable for ISM-band (315/433/868/915 MHz) Morse transmitters.
         </p>

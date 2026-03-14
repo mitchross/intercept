@@ -150,10 +150,10 @@ const BluetoothMode = (function() {
 
         const searchInput = document.getElementById('btDeviceSearch');
         if (searchInput) {
-            searchInput.addEventListener('input', () => {
+            searchInput.addEventListener('input', debounce(() => {
                 currentSearchTerm = searchInput.value.trim().toLowerCase();
                 applyDeviceFilter();
-            });
+            }, 200));
         }
         filterListenersBound = true;
     }

@@ -17,7 +17,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--accent-cyan, #00d4ff);
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 1px solid var(--accent-cyan-20);
     padding-bottom: 6px;
     margin-top: 8px;
 }
@@ -221,7 +221,7 @@
     fill: none;
     stroke: var(--accent-cyan, #00d4ff);
     stroke-width: 1.5;
-    filter: drop-shadow(0 0 2px rgba(0, 212, 255, 0.4));
+    filter: drop-shadow(0 0 2px var(--accent-cyan-30));
 }
 
 .sys-sparkline-area {

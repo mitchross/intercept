@@ -46,7 +46,7 @@
     /* Text hierarchy */
     --text-primary: #d7e0ee;
     --text-secondary: #9fb0c7;
-    --text-dim: #6f7f94;
+    --text-dim: #788da1;
     --text-muted: #445266;
     --text-inverse: #0b1118;
 
@@ -69,11 +69,32 @@
     --severity-medium: #ffcc00;
     --severity-low: #00ff88;
 
+    /* Accent opacity variants — use instead of hard-coded rgba */
+    --accent-cyan-10: rgba(74, 163, 255, 0.10);
+    --accent-cyan-20: rgba(74, 163, 255, 0.20);
+    --accent-cyan-30: rgba(74, 163, 255, 0.30);
+    --accent-green-10: rgba(56, 193, 128, 0.10);
+    --accent-green-20: rgba(56, 193, 128, 0.20);
+    --accent-green-30: rgba(56, 193, 128, 0.30);
+    --accent-red-10: rgba(226, 93, 93, 0.10);
+    --accent-red-20: rgba(226, 93, 93, 0.20);
+    --accent-orange-10: rgba(214, 168, 94, 0.10);
+    --accent-orange-20: rgba(214, 168, 94, 0.20);
+    --accent-purple-10: rgba(143, 123, 214, 0.10);
+    --accent-purple-20: rgba(143, 123, 214, 0.20);
+
+    /* Overlays — use instead of hard-coded rgba(0,0,0,...) */
+    --overlay-light: rgba(0, 0, 0, 0.20);
+    --overlay-medium: rgba(0, 0, 0, 0.40);
+    --overlay-heavy: rgba(0, 0, 0, 0.60);
+
     /* Data visualization neon colors */
     --neon-green: #00ff88;
     --neon-yellow: #ffcc00;
     --neon-orange: #ff8800;
     --neon-red: #ff3366;
+    --neon-green-dim: rgba(0, 255, 136, 0.10);
+    --neon-green-20: rgba(0, 255, 136, 0.20);
 
     /* Subtle grid/pattern */
     --grid-line: rgba(74, 163, 255, 0.1);
@@ -216,11 +237,32 @@
     --severity-medium: #9a8420;
     --severity-low: #1f8a57;
 
+    /* Accent opacity variants — light theme */
+    --accent-cyan-10: rgba(31, 95, 168, 0.08);
+    --accent-cyan-20: rgba(31, 95, 168, 0.15);
+    --accent-cyan-30: rgba(31, 95, 168, 0.22);
+    --accent-green-10: rgba(31, 138, 87, 0.08);
+    --accent-green-20: rgba(31, 138, 87, 0.15);
+    --accent-green-30: rgba(31, 138, 87, 0.22);
+    --accent-red-10: rgba(199, 68, 68, 0.08);
+    --accent-red-20: rgba(199, 68, 68, 0.15);
+    --accent-orange-10: rgba(181, 134, 58, 0.08);
+    --accent-orange-20: rgba(181, 134, 58, 0.15);
+    --accent-purple-10: rgba(107, 91, 168, 0.08);
+    --accent-purple-20: rgba(107, 91, 168, 0.15);
+
+    /* Overlays — light theme */
+    --overlay-light: rgba(0, 0, 0, 0.08);
+    --overlay-medium: rgba(0, 0, 0, 0.16);
+    --overlay-heavy: rgba(0, 0, 0, 0.30);
+
     /* Data visualization neon replacements */
     --neon-green: #1a8a50;
     --neon-yellow: #9a8420;
     --neon-orange: #b5863a;
     --neon-red: #c74444;
+    --neon-green-dim: rgba(26, 138, 80, 0.10);
+    --neon-green-20: rgba(26, 138, 80, 0.15);
 
     --text-primary: #122034;
     --text-secondary: #3a4a5f;
@@ -231,6 +273,7 @@
     --border-color: #d1d9e6;
     --border-light: #c1ccdb;
     --border-glow: rgba(31, 95, 168, 0.12);
+    --border-focus: var(--accent-cyan);
 
     --grid-line: rgba(31, 95, 168, 0.14);
     --grid-dot: rgba(12, 18, 24, 0.06);

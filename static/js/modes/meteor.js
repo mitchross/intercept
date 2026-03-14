@@ -56,7 +56,7 @@ const MeteorScatter = (function () {
         if (_tlCanvas) _tlCtx = _tlCanvas.getContext('2d');
 
         _resizeCanvases();
-        window.addEventListener('resize', _resizeCanvases);
+        window.addEventListener('resize', throttle(_resizeCanvases, 150));
 
         // Wire up headline bar start/stop buttons
         const startBtn = document.getElementById('meteorStartBtn');

@@ -34,7 +34,7 @@
     overflow: hidden;
     opacity: 0;
     transform: translateX(100%);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .update-toast.show {
@@ -117,7 +117,7 @@
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background 0.15s, color 0.15s;
 }
 
 .update-toast-btn-primary {
@@ -157,7 +157,7 @@
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s ease;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
 .update-modal-overlay.show {
@@ -551,7 +551,7 @@
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background 0.15s, color 0.15s;
 }
 
 .update-modal-btn:disabled {

@@ -31,7 +31,7 @@
                         <span class="settings-label-desc">Use local assets instead of CDN</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="offlineEnabled" onchange="Settings.toggleOfflineMode(this.checked)">
+                        <input type="checkbox" id="offlineEnabled" onchange="Settings.toggleOfflineMode(this.checked)" aria-label="Enable offline mode">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -45,7 +45,7 @@
                         <span class="settings-label-text">JavaScript/CSS Libraries</span>
                         <span class="settings-label-desc">Leaflet, Chart.js</span>
                     </div>
-                    <select id="assetsSource" class="settings-select" onchange="Settings.setAssetSource(this.value)">
+                    <select id="assetsSource" class="settings-select" aria-label="JavaScript/CSS library source" onchange="Settings.setAssetSource(this.value)">
                         <option value="cdn">CDN (Online)</option>
                         <option value="local">Local</option>
                     </select>
@@ -56,7 +56,7 @@
                         <span class="settings-label-text">Web Fonts</span>
                         <span class="settings-label-desc">Roboto Condensed</span>
                     </div>
-                    <select id="fontsSource" class="settings-select" onchange="Settings.setFontsSource(this.value)">
+                    <select id="fontsSource" class="settings-select" aria-label="Web fonts source" onchange="Settings.setFontsSource(this.value)">
                         <option value="cdn">Google Fonts (Online)</option>
                         <option value="local">Local</option>
                     </select>
@@ -71,7 +71,7 @@
                         <span class="settings-label-text">Tile Provider</span>
                         <span class="settings-label-desc">Map background imagery</span>
                     </div>
-                    <select id="tileProvider" class="settings-select" onchange="Settings.setTileProvider(this.value)">
+                    <select id="tileProvider" class="settings-select" aria-label="Map tile provider" onchange="Settings.setTileProvider(this.value)">
                         <option value="cartodb_dark_cyan">Intercept Default</option>
                         <option value="cartodb_dark">CartoDB Dark</option>
                         <option value="openstreetmap">OpenStreetMap</option>
@@ -87,6 +87,7 @@
                         <span class="settings-label-desc">e.g., http://localhost:8080/{z}/{x}/{y}.png</span>
                         <input type="text" id="customTileUrl" class="settings-input"
                                placeholder="http://tile-server/{z}/{x}/{y}.png"
+                               aria-label="Custom tile URL"
                                onchange="Settings.setCustomTileUrl(this.value)">
                     </div>
                 </div>
@@ -138,6 +139,7 @@
                     </div>
                     <input type="number" id="observerLatInput" class="settings-input"
                            step="0.0001" min="-90" max="90" placeholder="51.5074"
+                           aria-label="Observer latitude"
                            style="width: 120px; text-align: right;">
                 </div>
 
@@ -148,6 +150,7 @@
                     </div>
                     <input type="number" id="observerLonInput" class="settings-input"
                            step="0.0001" min="-180" max="180" placeholder="-0.1278"
+                           aria-label="Observer longitude"
                            style="width: 120px; text-align: right;">
                 </div>
 
@@ -199,7 +202,7 @@
                         <span class="settings-label-text">Theme</span>
                         <span class="settings-label-desc">Color scheme preference</span>
                     </div>
-                    <select id="themeSelect" class="settings-select" onchange="setThemePreference(this.value)">
+                    <select id="themeSelect" class="settings-select" aria-label="Theme" onchange="setThemePreference(this.value)">
                         <option value="dark">Dark</option>
                         <option value="light">Light</option>
                     </select>
@@ -211,7 +214,7 @@
                         <span class="settings-label-desc">Enable visual effects and animations</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="animationsEnabled" checked onchange="setAnimationsEnabled(this.checked)">
+                        <input type="checkbox" id="animationsEnabled" checked onchange="setAnimationsEnabled(this.checked)" aria-label="Enable animations">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -241,7 +244,7 @@
                         <span class="settings-label-desc">Periodically check GitHub for new releases</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="updateCheckEnabled" checked onchange="toggleUpdateCheck(this.checked)">
+                        <input type="checkbox" id="updateCheckEnabled" checked onchange="toggleUpdateCheck(this.checked)" aria-label="Auto-check for updates">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -296,7 +299,7 @@
                         <span class="settings-label-desc">Speak decoded pager messages</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="voiceCfgPager" checked onchange="saveVoiceAlertConfig()">
+                        <input type="checkbox" id="voiceCfgPager" checked onchange="saveVoiceAlertConfig()" aria-label="Voice alerts for pager messages">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -307,7 +310,7 @@
                         <span class="settings-label-desc">Speak counter-surveillance detections</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="voiceCfgTscm" checked onchange="saveVoiceAlertConfig()">
+                        <input type="checkbox" id="voiceCfgTscm" checked onchange="saveVoiceAlertConfig()" aria-label="Voice alerts for TSCM detections">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -318,7 +321,7 @@
                         <span class="settings-label-desc">Speak when AirTag, Tile, or SmartTag found</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="voiceCfgTracker" checked onchange="saveVoiceAlertConfig()">
+                        <input type="checkbox" id="voiceCfgTracker" checked onchange="saveVoiceAlertConfig()" aria-label="Voice alerts for tracker detection">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -329,7 +332,7 @@
                         <span class="settings-label-desc">Speak when military aircraft are detected</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="voiceCfgAdsbMilitary" checked onchange="saveVoiceAlertConfig()">
+                        <input type="checkbox" id="voiceCfgAdsbMilitary" checked onchange="saveVoiceAlertConfig()" aria-label="Voice alerts for military aircraft">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -340,7 +343,7 @@
                         <span class="settings-label-desc">Speak aircraft emergency transponder codes</span>
                     </div>
                     <label class="toggle-switch">
-                        <input type="checkbox" id="voiceCfgSquawk" checked onchange="saveVoiceAlertConfig()">
+                        <input type="checkbox" id="voiceCfgSquawk" checked onchange="saveVoiceAlertConfig()" aria-label="Voice alerts for emergency squawks">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
@@ -350,7 +353,7 @@
                         <span class="settings-label-text">Voice</span>
                         <span class="settings-label-desc">Speech synthesis voice</span>
                     </div>
-                    <select id="voiceCfgVoice" class="settings-select" style="width: 200px;" onchange="saveVoiceAlertConfig()">
+                    <select id="voiceCfgVoice" class="settings-select" style="width: 200px;" aria-label="Speech synthesis voice" onchange="saveVoiceAlertConfig()">
                         <option value="">Default</option>
                     </select>
                 </div>
@@ -361,7 +364,7 @@
                         <span class="settings-label-desc">Speech speed (0.5 – 2.0)</span>
                     </div>
                     <div style="display:flex; align-items:center; gap:8px; width:200px;">
-                        <input type="range" id="voiceCfgRate" min="0.5" max="2.0" step="0.1" value="1.1" style="flex:1;" oninput="document.getElementById('voiceCfgRateVal').textContent=this.value; saveVoiceAlertConfig();">
+                        <input type="range" id="voiceCfgRate" min="0.5" max="2.0" step="0.1" value="1.1" style="flex:1;" aria-label="Speech rate" oninput="document.getElementById('voiceCfgRateVal').textContent=this.value; saveVoiceAlertConfig();">
                         <span id="voiceCfgRateVal" style="font-family:var(--font-mono); font-size:11px; color:var(--text-dim); min-width:28px; text-align:right;">1.1</span>
                     </div>
                 </div>
@@ -372,7 +375,7 @@
                         <span class="settings-label-desc">Voice pitch (0.5 – 2.0)</span>
                     </div>
                     <div style="display:flex; align-items:center; gap:8px; width:200px;">
-                        <input type="range" id="voiceCfgPitch" min="0.5" max="2.0" step="0.1" value="0.9" style="flex:1;" oninput="document.getElementById('voiceCfgPitchVal').textContent=this.value; saveVoiceAlertConfig();">
+                        <input type="range" id="voiceCfgPitch" min="0.5" max="2.0" step="0.1" value="0.9" style="flex:1;" aria-label="Voice pitch" oninput="document.getElementById('voiceCfgPitchVal').textContent=this.value; saveVoiceAlertConfig();">
                         <span id="voiceCfgPitchVal" style="font-family:var(--font-mono); font-size:11px; color:var(--text-dim); min-width:28px; text-align:right;">0.9</span>
                     </div>
                 </div>
@@ -396,14 +399,14 @@
                         <span class="settings-label-text">Rule Name</span>
                         <span class="settings-label-desc">Human-friendly title for this alert</span>
                     </div>
-                    <input type="text" id="alertsRuleName" class="settings-input" placeholder="New alert rule" style="width: 220px;">
+                    <input type="text" id="alertsRuleName" class="settings-input" placeholder="New alert rule" aria-label="Alert rule name" style="width: 220px;">
                 </div>
                 <div class="settings-row" style="border-bottom: none;">
                     <div class="settings-label">
                         <span class="settings-label-text">Mode</span>
                         <span class="settings-label-desc">Filter to a specific mode or all</span>
                     </div>
-                    <select id="alertsRuleMode" class="settings-select" style="width: 220px;">
+                    <select id="alertsRuleMode" class="settings-select" aria-label="Alert rule mode" style="width: 220px;">
                         <option value="">All modes</option>
                         <option value="pager">Pager</option>
                         <option value="sensor">433 Sensors</option>
@@ -422,7 +425,7 @@
                         <span class="settings-label-text">Event Type</span>
                         <span class="settings-label-desc">Optional event type (for example <code>device_update</code>)</span>
                     </div>
-                    <input type="text" id="alertsRuleEventType" class="settings-input" placeholder="Optional" style="width: 220px;">
+                    <input type="text" id="alertsRuleEventType" class="settings-input" placeholder="Optional" aria-label="Alert event type" style="width: 220px;">
                 </div>
                 <div class="settings-row" style="border-bottom: none;">
                     <div class="settings-label">
@@ -430,8 +433,8 @@
                         <span class="settings-label-desc">Optional key/value exact match (for example <code>address</code> + MAC)</span>
                     </div>
                     <div style="display:flex; gap:8px;">
-                        <input type="text" id="alertsRuleMatchKey" class="settings-input" placeholder="key" style="width: 100px;">
-                        <input type="text" id="alertsRuleMatchValue" class="settings-input" placeholder="value" style="width: 112px;">
+                        <input type="text" id="alertsRuleMatchKey" class="settings-input" placeholder="key" aria-label="Match filter key" style="width: 100px;">
+                        <input type="text" id="alertsRuleMatchValue" class="settings-input" placeholder="value" aria-label="Match filter value" style="width: 112px;">
                     </div>
                 </div>
                 <div class="settings-row" style="border-bottom: none;">
@@ -439,7 +442,7 @@
                         <span class="settings-label-text">Severity</span>
                         <span class="settings-label-desc">Controls priority coloring and notifications</span>
                     </div>
-                    <select id="alertsRuleSeverity" class="settings-select" style="width: 220px;">
+                    <select id="alertsRuleSeverity" class="settings-select" aria-label="Alert severity" style="width: 220px;">
                         <option value="low">Low</option>
                         <option value="medium" selected>Medium</option>
                         <option value="high">High</option>
@@ -482,7 +485,7 @@
                         <span class="settings-label-text">Mode</span>
                         <span class="settings-label-desc">Record live events for a mode</span>
                     </div>
-                    <select id="recordingModeSelect" class="settings-select" style="width: 200px;">
+                    <select id="recordingModeSelect" class="settings-select" aria-label="Recording mode" style="width: 200px;">
                         <option value="pager">Pager</option>
                         <option value="sensor">433 Sensors</option>
                         <option value="wifi">WiFi</option>
@@ -503,7 +506,7 @@
                         <span class="settings-label-text">Label</span>
                         <span class="settings-label-desc">Optional note for the session</span>
                     </div>
-                    <input type="text" id="recordingLabelInput" class="settings-input" placeholder="Morning sweep" style="width: 200px;">
+                    <input type="text" id="recordingLabelInput" class="settings-input" placeholder="Morning sweep" aria-label="Recording session label" style="width: 200px;">
                 </div>
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
                     <button class="check-assets-btn" onclick="RecordingUI.start()">Start</button>

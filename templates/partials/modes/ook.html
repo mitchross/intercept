@@ -12,8 +12,8 @@
     <div class="section">
         <h3>Frequency</h3>
         <div class="form-group">
-            <label>Frequency (MHz)</label>
-            <input type="number" id="ookFrequency" value="433.920" step="0.001" min="24" max="1766">
+            <label for="ookFrequency">Frequency (MHz)</label>
+            <input type="number" id="ookFrequency" value="433.920" step="0.001" min="24" max="1766" aria-required="true">
         </div>
         <div class="form-group">
             <label>Presets <span class="ook-preset-hint">(right-click to remove)</span></label>
@@ -21,8 +21,8 @@
                 <!-- Populated by OokMode.renderPresets() -->
             </div>
             <div class="ook-preset-add">
-                <input type="text" id="ookNewPresetFreq" placeholder="MHz">
-                <button class="preset-btn" onclick="OokMode.addPreset()" style="background: #2ecc71; color: #000;">Add</button>
+                <input type="text" id="ookNewPresetFreq" placeholder="MHz" aria-label="New preset frequency">
+                <button class="preset-btn" onclick="OokMode.addPreset()" style="background: var(--accent-green); color: var(--text-inverse);">Add</button>
                 <button class="preset-btn" onclick="OokMode.resetPresets()" style="font-size: 10px;">Reset</button>
             </div>
         </div>
@@ -31,11 +31,11 @@
     <div class="section">
         <h3>SDR Settings</h3>
         <div class="form-group">
-            <label>Gain (dB)</label>
+            <label for="ookGain">Gain (dB)</label>
             <input type="number" id="ookGain" value="40" step="1" min="0" max="50">
         </div>
         <div class="form-group">
-            <label>PPM Correction</label>
+            <label for="ookPPM">PPM Correction</label>
             <input type="number" id="ookPPM" value="0" step="1" min="-100" max="100">
         </div>
     </div>
@@ -46,7 +46,7 @@
             <div class="ook-encoding-btns">
                 <button class="preset-btn" id="ookEnc_pwm"
                         onclick="OokMode.setEncoding('pwm')"
-                        style="background: var(--accent); color: #000;">PWM</button>
+                        style="background: var(--accent); color: var(--text-inverse);">PWM</button>
                 <button class="preset-btn" id="ookEnc_ppm"
                         onclick="OokMode.setEncoding('ppm')">PPM</button>
                 <button class="preset-btn" id="ookEnc_manchester"
@@ -66,27 +66,27 @@
         </p>
         <div class="ook-timing-grid">
             <div class="form-group">
-                <label>Short (&mu;s)</label>
+                <label for="ookShortPulse">Short (&mu;s)</label>
                 <input type="number" id="ookShortPulse" value="300" step="10" min="50" max="5000">
             </div>
             <div class="form-group">
-                <label>Long (&mu;s)</label>
+                <label for="ookLongPulse">Long (&mu;s)</label>
                 <input type="number" id="ookLongPulse" value="600" step="10" min="100" max="10000">
             </div>
             <div class="form-group">
-                <label>Gap/Reset (&mu;s)</label>
+                <label for="ookResetLimit">Gap/Reset (&mu;s)</label>
                 <input type="number" id="ookResetLimit" value="8000" step="100" min="500" max="50000">
             </div>
             <div class="form-group">
-                <label>Gap limit (&mu;s)</label>
+                <label for="ookGapLimit">Gap limit (&mu;s)</label>
                 <input type="number" id="ookGapLimit" value="5000" step="100" min="500" max="50000">
             </div>
             <div class="form-group">
-                <label>Tolerance (&mu;s)</label>
+                <label for="ookTolerance">Tolerance (&mu;s)</label>
                 <input type="number" id="ookTolerance" value="150" step="10" min="10" max="1000">
             </div>
             <div class="form-group">
-                <label>Min bits</label>
+                <label for="ookMinBits">Min bits</label>
                 <input type="number" id="ookMinBits" value="8" step="1" min="1" max="512">
             </div>
         </div>

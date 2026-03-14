@@ -14,13 +14,14 @@
 }
 
 .signal-waveform-bar {
-    will-change: height, y;
+    will-change: transform;
     transition: fill 0.3s ease;
 }
 
 /* Idle breathing animation */
 .signal-waveform.idle .signal-waveform-bar {
     animation: signal-waveform-breathe 2.5s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .signal-waveform.idle .signal-waveform-bar:nth-child(even) {

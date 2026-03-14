@@ -176,3 +176,26 @@ Each signal type has its own Flask blueprint:
 ## Testing Notes
 
 Tests use pytest with extensive mocking of external tools. Key fixtures in `tests/conftest.py`. Mock subprocess calls when testing decoder integration.
+
+## Design Context
+
+### Users
+Both SDR hobbyists/ham radio operators and security professionals (TSCM, SIGINT analysts). Users are technically adept and expect information-dense interfaces that surface real-time signal data without dumbing it down. They're monitoring RF environments — context when using the app ranges from casual exploration to active field operations.
+
+### Brand Personality
+**Technical, sleek, confident.** INTERCEPT presents as a polished, modern intelligence tool — not a toy, not a military surplus UI. It earns trust through precision and clarity rather than theatrics. The "iNTERCEPT // See the Invisible" tagline captures the core promise: making hidden RF signals visible and actionable.
+
+### Aesthetic Direction
+- **Visual tone**: Dark-themed cyber/SIGINT aesthetic with layered depth, ambient glows, and notched-corner panels. The design evokes CRT monitors and command-line interfaces without being retro — it's modern and refined.
+- **Primary accent**: Cyan (`#4aa3ff`) conveys trust, technology, and signal activity. Green (`#38c180`) for live/active states, red (`#e25d5d`) for alerts, orange (`#d6a85e`) for warnings.
+- **Typography**: Roboto Condensed for UI chrome (condensed for data density), JetBrains Mono for signal data and technical readouts.
+- **Signature elements**: Notched corners via clip-path, ambient radial glows, noise texture overlay, pulsing status indicators, scanline animations.
+- **Theme**: Both dark and light themes are equally important and should be maintained to the same quality standard.
+- **The current design direction is its own reference** — no external sites to emulate. Evolve from within.
+
+### Design Principles
+1. **Data density over decoration** — Users need to see many signals at once. Every pixel should earn its place. Favor compact, information-rich layouts.
+2. **Signal over noise** — Visual hierarchy must make important data (active signals, alerts, anomalies) immediately obvious against the background of normal activity.
+3. **Both themes, same quality** — Dark and light modes are equal citizens. Never add a visual feature to one without ensuring it works in the other.
+4. **Consistent token usage** — Use CSS custom properties (`--accent-cyan`, `--bg-card`, etc.) exclusively. Never hard-code colors, spacing, or typography values.
+5. **Accessible by default** — Respect `prefers-reduced-motion`, maintain WCAG contrast ratios, ensure keyboard navigability. The tool must work for everyone who needs it.

@@ -103,7 +103,7 @@
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .sstv-strip-btn.start {
@@ -121,7 +121,7 @@
 }
 
 .sstv-strip-btn.stop:hover {
-    background: #ff1a53;
+    background: var(--neon-red);
 }
 
 .sstv-strip-divider {
@@ -230,7 +230,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay-light);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -356,7 +356,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay-light);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -395,13 +395,13 @@
     border: 1px solid var(--border-color);
     border-radius: 6px;
     overflow: hidden;
-    transition: all 0.15s ease;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .sstv-image-card:hover {
     border-color: var(--accent-cyan);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 4px 12px var(--accent-cyan-20);
 }
 
 .sstv-image-card-inner {
@@ -446,7 +446,7 @@
     border-radius: 4px;
     color: white;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background 0.15s, border-color 0.15s;
 }
 
 .sstv-image-actions button:hover {
@@ -653,7 +653,7 @@
     align-items: center;
     gap: 8px;
     padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay-light);
     border-bottom: 1px solid var(--border-color);
     font-family: var(--font-mono);
     font-size: 12px;
@@ -688,7 +688,7 @@
     font-weight: 700;
     color: var(--accent-cyan);
     letter-spacing: 2px;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    text-shadow: 0 0 20px var(--accent-cyan-30);
 }
 
 .sstv-countdown-value.imminent {
@@ -923,7 +923,7 @@
     border-radius: 4px;
     color: white;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: background 0.15s, border-color 0.15s;
     text-transform: uppercase;
 }
 
@@ -965,7 +965,7 @@
     border: 1px solid var(--border-color);
     color: var(--text-dim);
     cursor: pointer;
-    transition: all 0.15s;
+    transition: color 0.15s, border-color 0.15s;
     margin-left: 8px;
 }
 

@@ -1,7 +1,7 @@
 /* Meteor Scatter Mode Styles */
 
 .meteor-visuals-container {
-    --ms-border: rgba(92, 255, 170, 0.24);
+    --ms-border: var(--accent-green-20);
     --ms-surface: linear-gradient(180deg, rgba(12, 19, 31, 0.97) 0%, rgba(5, 9, 17, 0.98) 100%);
     --ms-accent: #6bffb8;
     --ms-accent-dim: rgba(107, 255, 184, 0.13);

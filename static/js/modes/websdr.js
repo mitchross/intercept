@@ -351,7 +351,7 @@ function setupWebsdrResizeHandling(mapEl) {
     }
 
     if (!websdrResizeHooked) {
-        window.addEventListener('resize', invalidateWebSDRViewport);
+        window.addEventListener('resize', throttle(invalidateWebSDRViewport, 150));
         window.addEventListener('orientationchange', () => setTimeout(invalidateWebSDRViewport, 120));
         websdrResizeHooked = true;
     }

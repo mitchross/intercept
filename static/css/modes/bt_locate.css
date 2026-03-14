@@ -17,7 +17,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
     color: var(--text-secondary);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .btl-env-btn.active {
-    background: rgba(0, 255, 136, 0.1);
+    background: var(--neon-green-dim);
     border-color: var(--accent-green, #00ff88);
     color: var(--text-primary);
 }
@@ -83,7 +83,7 @@
     color: var(--text-dim);
     text-align: center;
     min-width: 130px;
-    transition: all 0.3s;
+    transition: color var(--transition-slow), border-color var(--transition-slow), background var(--transition-slow), box-shadow var(--transition-slow);
     flex-shrink: 0;
 }
 
@@ -209,7 +209,7 @@
     border-radius: 4px;
     color: var(--text-dim);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), color var(--transition-base);
 }
 
 .btl-hud-clear-btn:hover {
@@ -414,15 +414,15 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--accent-green, #00ff88);
-    background: rgba(0, 255, 136, 0.1);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    background: var(--neon-green-dim);
+    border: 1px solid var(--neon-green-20);
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base);
 }
 
 .bt-locate-btn:hover {
-    background: rgba(0, 255, 136, 0.2);
+    background: var(--neon-green-20);
     border-color: var(--accent-green, #00ff88);
 }
 
@@ -442,17 +442,17 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--accent-cyan, #00d4ff);
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.3);
+    background: var(--accent-cyan-10);
+    border: 1px solid var(--accent-cyan-30);
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base);
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .btl-detect-irk-btn:hover {
-    background: rgba(0, 212, 255, 0.2);
+    background: var(--accent-cyan-20);
     border-color: var(--accent-cyan, #00d4ff);
 }
 
@@ -493,7 +493,7 @@
 }
 
 .btl-irk-picker-item:hover {
-    background: rgba(0, 255, 136, 0.08);
+    background: var(--neon-green-dim);
 }
 
 .btl-irk-picker-name {

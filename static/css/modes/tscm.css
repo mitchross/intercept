@@ -23,13 +23,13 @@
     margin-top: 2px;
 }
 .threat-card.critical { border-color: var(--severity-critical); color: var(--severity-critical); }
-.threat-card.critical.active { background: rgba(255,51,102,0.2); }
+.threat-card.critical.active { background: var(--accent-red-20); }
 .threat-card.high { border-color: var(--severity-high); color: var(--severity-high); }
-.threat-card.high.active { background: rgba(255,153,51,0.2); }
+.threat-card.high.active { background: var(--accent-orange-20); }
 .threat-card.medium { border-color: var(--severity-medium); color: var(--severity-medium); }
-.threat-card.medium.active { background: rgba(255,204,0,0.2); }
+.threat-card.medium.active { background: var(--accent-orange-20); }
 .threat-card.low { border-color: var(--severity-low); color: var(--severity-low); }
-.threat-card.low.active { background: rgba(0,255,136,0.2); }
+.threat-card.low.active { background: var(--neon-green-20); }
 
 /* TSCM Dashboard */
 .tscm-dashboard {
@@ -102,7 +102,7 @@
     transition: background 0.2s;
 }
 .tscm-device-item:hover {
-    background: rgba(74,158,255,0.1);
+    background: var(--accent-cyan-10);
 }
 .tscm-device-item.new {
     border-left-color: var(--severity-high);
@@ -117,15 +117,15 @@
 /* Classification colors */
 .tscm-device-item.classification-green {
     border-left-color: var(--accent-green);
-    background: rgba(0, 204, 0, 0.1);
+    background: var(--accent-green-10);
 }
 .tscm-device-item.classification-yellow {
     border-left-color: var(--severity-medium);
-    background: rgba(255, 204, 0, 0.1);
+    background: var(--accent-orange-10);
 }
 .tscm-device-item.classification-red {
     border-left-color: var(--accent-red);
-    background: rgba(255, 51, 51, 0.15);
+    background: var(--accent-red-10);
     animation: pulse-glow 2s infinite;
 }
 .classification-indicator {
@@ -133,8 +133,8 @@
 }
 .tscm-status-message {
     padding: 12px;
-    background: rgba(255, 153, 51, 0.15);
-    border: 1px solid rgba(255, 153, 51, 0.3);
+    background: var(--accent-orange-10);
+    border: 1px solid var(--accent-orange-20);
     border-radius: 6px;
     color: var(--text-primary);
     font-size: 12px;
@@ -147,7 +147,7 @@
 }
 .tscm-privilege-warning {
     padding: 10px 12px;
-    background: rgba(255, 51, 51, 0.15);
+    background: var(--accent-red-10);
     border: 1px solid rgba(255, 51, 51, 0.4);
     border-radius: 6px;
     color: var(--text-primary);
@@ -179,7 +179,7 @@
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), transform var(--transition-base);
 }
 .tscm-action-btn:hover {
     background: var(--accent-green-hover);
@@ -201,7 +201,7 @@
     font-size: 9px;
     padding: 1px 4px;
     border-radius: 3px;
-    background: rgba(255, 51, 102, 0.2);
+    background: var(--accent-red-20);
     color: var(--severity-critical);
     border: 1px solid rgba(255, 51, 102, 0.4);
     text-transform: uppercase;
@@ -212,9 +212,9 @@
     font-size: 9px;
     padding: 1px 4px;
     border-radius: 3px;
-    background: rgba(74, 158, 255, 0.2);
+    background: var(--accent-cyan-20);
     color: var(--accent-cyan);
-    border: 1px solid rgba(74, 158, 255, 0.4);
+    border: 1px solid var(--accent-cyan-30);
     text-transform: uppercase;
     letter-spacing: 0.4px;
 }
@@ -223,7 +223,7 @@
     font-size: 9px;
     padding: 1px 4px;
     border-radius: 3px;
-    background: rgba(0, 255, 136, 0.2);
+    background: var(--neon-green-20);
     color: var(--neon-green);
     border: 1px solid rgba(0, 255, 136, 0.4);
     text-transform: uppercase;
@@ -267,15 +267,15 @@
     font-weight: 600;
 }
 .score-badge.score-low {
-    background: rgba(0, 204, 0, 0.2);
+    background: var(--accent-green-20);
     color: var(--accent-green);
 }
 .score-badge.score-medium {
-    background: rgba(255, 204, 0, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-medium);
 }
 .score-badge.score-high {
-    background: rgba(255, 51, 51, 0.2);
+    background: var(--accent-red-20);
     color: var(--accent-red);
 }
 .tscm-action {
@@ -288,7 +288,7 @@
 .tscm-correlations {
     margin-top: 16px;
     padding: 12px;
-    background: rgba(255, 153, 51, 0.1);
+    background: var(--accent-orange-10);
     border-radius: 6px;
     border: 1px solid var(--severity-high);
 }
@@ -342,17 +342,17 @@
     font-size: 13px;
 }
 .tscm-assessment.high-interest {
-    background: rgba(255, 51, 51, 0.15);
+    background: var(--accent-red-10);
     border: 1px solid var(--accent-red);
     color: var(--accent-red);
 }
 .tscm-assessment.needs-review {
-    background: rgba(255, 204, 0, 0.15);
+    background: var(--accent-orange-10);
     border: 1px solid var(--severity-medium);
     color: var(--severity-medium);
 }
 .tscm-assessment.informational {
-    background: rgba(0, 204, 0, 0.15);
+    background: var(--accent-green-10);
     border: 1px solid var(--accent-green);
     color: var(--accent-green);
 }
@@ -406,7 +406,7 @@
     font-size: 20px;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
 }
 .tscm-modal-close:hover {
     background: var(--accent-red);
@@ -425,9 +425,9 @@
     margin: 0;
     font-size: 16px;
 }
-.device-detail-header.classification-red { background: rgba(255, 51, 51, 0.15); }
-.device-detail-header.classification-yellow { background: rgba(255, 204, 0, 0.15); }
-.device-detail-header.classification-green { background: rgba(0, 204, 0, 0.15); }
+.device-detail-header.classification-red { background: var(--accent-red-10); }
+.device-detail-header.classification-yellow { background: var(--accent-orange-10); }
+.device-detail-header.classification-green { background: var(--accent-green-10); }
 .device-detail-protocol {
     font-size: 10px;
     padding: 3px 8px;
@@ -452,9 +452,9 @@
     justify-content: center;
     border: 3px solid;
 }
-.score-circle.high { border-color: var(--accent-red); background: rgba(255, 51, 51, 0.1); }
-.score-circle.medium { border-color: var(--severity-medium); background: rgba(255, 204, 0, 0.1); }
-.score-circle.low { border-color: var(--accent-green); background: rgba(0, 204, 0, 0.1); }
+.score-circle.high { border-color: var(--accent-red); background: var(--accent-red-10); }
+.score-circle.medium { border-color: var(--severity-medium); background: var(--accent-orange-10); }
+.score-circle.low { border-color: var(--accent-green); background: var(--accent-green-10); }
 .score-circle .score-value {
     font-size: 24px;
     font-weight: 700;
@@ -520,7 +520,7 @@
     font-size: 11px;
 }
 .indicator-type {
-    background: rgba(255, 153, 51, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-high);
     padding: 2px 6px;
     border-radius: 3px;
@@ -544,8 +544,8 @@
     padding: 12px 16px;
     font-size: 10px;
     color: var(--text-secondary);
-    background: rgba(74, 158, 255, 0.1);
-    border-top: 1px solid rgba(74, 158, 255, 0.3);
+    background: var(--accent-cyan-10);
+    border-top: 1px solid var(--accent-cyan-30);
 }
 .tscm-threat-action {
     margin-top: 6px;
@@ -605,7 +605,7 @@
 .protocol-badge {
     font-size: 9px;
     padding: 2px 6px;
-    background: rgba(74, 158, 255, 0.2);
+    background: var(--accent-cyan-20);
     color: var(--accent-cyan);
     border-radius: 3px;
     text-transform: uppercase;
@@ -613,7 +613,7 @@
 .indicator-mini {
     font-size: 9px;
     padding: 2px 6px;
-    background: rgba(255, 153, 51, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-high);
     border-radius: 3px;
 }
@@ -634,10 +634,10 @@
     background: rgba(0,0,0,0.2);
     border: 1px solid;
 }
-.tscm-threat-item.critical { border-color: var(--severity-critical); background: rgba(255,51,102,0.1); }
-.tscm-threat-item.high { border-color: var(--severity-high); background: rgba(255,153,51,0.1); }
-.tscm-threat-item.medium { border-color: var(--severity-medium); background: rgba(255,204,0,0.1); }
-.tscm-threat-item.low { border-color: var(--severity-low); background: rgba(0,255,136,0.1); }
+.tscm-threat-item.critical { border-color: var(--severity-critical); background: var(--accent-red-10); }
+.tscm-threat-item.high { border-color: var(--severity-high); background: var(--accent-orange-10); }
+.tscm-threat-item.medium { border-color: var(--severity-medium); background: var(--accent-orange-10); }
+.tscm-threat-item.low { border-color: var(--severity-low); background: var(--neon-green-dim); }
 .tscm-threat-header {
     display: flex;
     justify-content: space-between;
@@ -709,7 +709,7 @@
 }
 .scanner-track {
     fill: none;
-    stroke: rgba(74,158,255,0.1);
+    stroke: var(--accent-cyan-10);
     stroke-width: 4;
 }
 .scanner-progress {
@@ -790,7 +790,7 @@
     justify-content: space-between;
     padding: 10px 14px;
     margin-bottom: 12px;
-    background: linear-gradient(90deg, rgba(255, 51, 102, 0.2), rgba(255, 153, 51, 0.2));
+    background: linear-gradient(90deg, var(--accent-red-20), var(--accent-orange-20));
     border: 1px solid rgba(255, 51, 102, 0.5);
     border-radius: 6px;
     animation: meeting-glow 2s ease-in-out infinite;
@@ -906,15 +906,15 @@
     text-transform: uppercase;
 }
 .health-badge.healthy {
-    background: rgba(0, 204, 0, 0.2);
+    background: var(--accent-green-20);
     color: var(--accent-green);
 }
 .health-badge.noisy {
-    background: rgba(255, 204, 0, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-medium);
 }
 .health-badge.stale {
-    background: rgba(255, 51, 51, 0.2);
+    background: var(--accent-red-20);
     color: var(--accent-red);
 }
 .health-age {
@@ -1016,9 +1016,9 @@
     padding: 2px 6px;
     border-radius: 3px;
 }
-.cap-detail-status.available { background: rgba(0, 204, 0, 0.2); color: var(--accent-green); }
-.cap-detail-status.limited { background: rgba(255, 204, 0, 0.2); color: var(--severity-medium); }
-.cap-detail-status.unavailable { background: rgba(255, 51, 51, 0.2); color: var(--accent-red); }
+.cap-detail-status.available { background: var(--accent-green-20); color: var(--accent-green); }
+.cap-detail-status.limited { background: var(--accent-orange-20); color: var(--severity-medium); }
+.cap-detail-status.unavailable { background: var(--accent-red-20); color: var(--accent-red); }
 .cap-detail-limits {
     font-size: 10px;
     color: var(--text-muted);
@@ -1063,7 +1063,7 @@
     cursor: pointer;
 }
 .known-device-btn.remove {
-    background: rgba(255, 51, 51, 0.2);
+    background: var(--accent-red-20);
     color: var(--accent-red);
 }
 .known-device-btn.remove:hover {
@@ -1081,7 +1081,7 @@
     transition: background 0.2s;
 }
 .case-item:hover {
-    background: rgba(74, 158, 255, 0.1);
+    background: var(--accent-cyan-10);
 }
 .case-item.priority-high { border-left-color: var(--accent-red); }
 .case-item.priority-normal { border-left-color: var(--accent-cyan); }
@@ -1102,7 +1102,7 @@
     border-radius: 3px;
     text-transform: uppercase;
 }
-.case-status.open { background: rgba(0, 204, 0, 0.2); color: var(--accent-green); }
+.case-status.open { background: var(--accent-green-20); color: var(--accent-green); }
 .case-status.closed { background: rgba(128, 128, 128, 0.2); color: var(--text-secondary); }
 .case-meta {
     font-size: 10px;
@@ -1135,9 +1135,9 @@
     border-radius: 3px;
     text-transform: uppercase;
 }
-.playbook-risk.high_interest { background: rgba(255, 51, 51, 0.2); color: var(--accent-red); }
-.playbook-risk.needs_review { background: rgba(255, 204, 0, 0.2); color: var(--severity-medium); }
-.playbook-risk.informational { background: rgba(0, 204, 0, 0.2); color: var(--accent-green); }
+.playbook-risk.high_interest { background: var(--accent-red-20); color: var(--accent-red); }
+.playbook-risk.needs_review { background: var(--accent-orange-20); color: var(--severity-medium); }
+.playbook-risk.informational { background: var(--accent-green-20); color: var(--accent-green); }
 .playbook-desc {
     font-size: 11px;
     color: var(--text-secondary);
@@ -1222,19 +1222,19 @@
     font-weight: 600;
 }
 .proximity-badge.very_close {
-    background: rgba(255, 51, 51, 0.2);
+    background: var(--accent-red-20);
     color: var(--accent-red);
 }
 .proximity-badge.close {
-    background: rgba(255, 153, 51, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-high);
 }
 .proximity-badge.moderate {
-    background: rgba(255, 204, 0, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-medium);
 }
 .proximity-badge.far {
-    background: rgba(0, 204, 0, 0.2);
+    background: var(--accent-green-20);
     color: var(--accent-green);
 }
 
@@ -1242,15 +1242,15 @@
 .add-known-btn {
     padding: 4px 8px;
     font-size: 10px;
-    background: rgba(0, 204, 0, 0.2);
+    background: var(--accent-green-20);
     color: var(--accent-green);
-    border: 1px solid rgba(0, 204, 0, 0.3);
+    border: 1px solid var(--accent-green-30);
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base);
 }
 .add-known-btn:hover {
-    background: rgba(0, 204, 0, 0.3);
+    background: var(--accent-green-30);
 }
 
 /* Capabilities Grid */
@@ -1306,30 +1306,30 @@
 
 /* Modal Header Classification Colors */
 .device-detail-header.classification-cyan {
-    background: linear-gradient(135deg, rgba(0, 204, 255, 0.2) 0%, rgba(0, 150, 200, 0.1) 100%);
+    background: linear-gradient(135deg, var(--accent-cyan-20) 0%, var(--accent-cyan-10) 100%);
     border-bottom: 2px solid var(--accent-cyan);
 }
 .device-detail-header.classification-orange {
-    background: linear-gradient(135deg, rgba(255, 153, 51, 0.2) 0%, rgba(200, 120, 40, 0.1) 100%);
+    background: linear-gradient(135deg, var(--accent-orange-20) 0%, var(--accent-orange-10) 100%);
     border-bottom: 2px solid var(--severity-high);
 }
 .device-detail-header.classification-green {
-    background: linear-gradient(135deg, rgba(0, 204, 0, 0.2) 0%, rgba(0, 150, 0, 0.1) 100%);
+    background: linear-gradient(135deg, var(--accent-green-20) 0%, var(--accent-green-10) 100%);
     border-bottom: 2px solid var(--accent-green);
 }
 
 /* Playbook Enhancements */
 .playbook-item {
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base);
 }
 .playbook-item:hover {
-    background: rgba(255, 153, 51, 0.1);
+    background: var(--accent-orange-10);
 }
 .playbook-category {
     font-size: 9px;
     padding: 2px 6px;
-    background: rgba(255, 153, 51, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-high);
     border-radius: 3px;
     text-transform: uppercase;
@@ -1341,8 +1341,8 @@
 }
 .playbook-warning {
     padding: 8px 12px;
-    background: rgba(255, 153, 51, 0.15);
-    border: 1px solid rgba(255, 153, 51, 0.3);
+    background: var(--accent-orange-10);
+    border: 1px solid var(--accent-orange-20);
     border-radius: 4px;
     font-size: 11px;
     margin-top: 8px;
@@ -1359,7 +1359,7 @@
 .known-device-type {
     font-size: 9px;
     padding: 2px 6px;
-    background: rgba(74, 158, 255, 0.2);
+    background: var(--accent-cyan-20);
     color: var(--accent-cyan);
     border-radius: 3px;
     margin-left: 8px;
@@ -1525,12 +1525,12 @@
 }
 
 .anomaly-flag.needs-review {
-    background: rgba(255, 153, 51, 0.2);
+    background: var(--accent-orange-20);
     color: var(--severity-high);
 }
 
 .anomaly-flag.high-interest {
-    background: rgba(255, 51, 51, 0.2);
+    background: var(--accent-red-20);
     color: var(--accent-red);
 }
 
@@ -1557,8 +1557,8 @@
     gap: 8px;
     padding: 8px 10px;
     margin-bottom: 10px;
-    background: rgba(74, 158, 255, 0.12);
-    border: 1px solid rgba(74, 158, 255, 0.3);
+    background: var(--accent-cyan-10);
+    border: 1px solid var(--accent-cyan-30);
     border-radius: 6px;
     font-size: 11px;
 }
@@ -1569,9 +1569,9 @@
     margin-left: auto;
     font-size: 9px;
     padding: 2px 6px;
-    background: rgba(74, 158, 255, 0.2);
-    color: #9ed0ff;
-    border: 1px solid rgba(74, 158, 255, 0.4);
+    background: var(--accent-cyan-20);
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan-30);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -1592,7 +1592,7 @@
     border: 1px solid var(--border-color);
 }
 .tscm-schedule-item.enabled {
-    border-color: rgba(0, 255, 136, 0.35);
+    border-color: var(--neon-green-20);
 }
 .tscm-schedule-item.disabled {
     opacity: 0.7;

@@ -10,7 +10,7 @@
     <div class="section">
         <h3>Region &amp; Frequencies</h3>
         <div class="form-group">
-            <label>Region</label>
+            <label for="vdl2RegionSelect">Region</label>
             <select id="vdl2RegionSelect" onchange="updateVdl2MainFreqs()" style="width: 100%;">
                 <option value="na">North America</option>
                 <option value="eu">Europe</option>
@@ -21,8 +21,8 @@
             <!-- Populated by JS -->
         </div>
         <div class="form-group">
-            <label>Gain (dB, 0 = auto)</label>
-            <input type="number" id="vdl2GainInput" value="40" min="0" max="50" placeholder="0-50">
+            <label for="vdl2GainInput">Gain (dB, 0 = auto)</label>
+            <input type="number" id="vdl2GainInput" value="40" min="0" max="50" placeholder="0-50" aria-required="true">
         </div>
     </div>
 

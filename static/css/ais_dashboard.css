@@ -342,7 +342,7 @@ body {
     height: 10px;
     border-radius: 50%;
     background: var(--accent-red);
-    transition: all 0.3s ease;
+    transition: background var(--transition-slow), box-shadow var(--transition-slow);
 }
 
 .strip-status .status-dot.active {
@@ -382,7 +382,7 @@ body {
     font-size: 10px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base);
     white-space: nowrap;
 }
 
@@ -654,7 +654,7 @@ body {
     padding: 8px 10px;
     margin-bottom: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -820,7 +820,7 @@ body {
     letter-spacing: 1px;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background var(--transition-base), box-shadow var(--transition-base), color var(--transition-base);
 }
 
 .start-btn:hover {
@@ -1143,7 +1143,7 @@ body {
     padding: 8px 10px;
     margin-bottom: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background var(--transition-base), border-color var(--transition-base);
 }
 
 .dsc-message-item:hover {
@@ -1291,7 +1291,7 @@ body {
     letter-spacing: 1px;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background var(--transition-base), box-shadow var(--transition-base);
 }
 
 .dsc-distress-alert button:hover {

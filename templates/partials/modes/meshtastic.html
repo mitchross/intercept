@@ -10,10 +10,10 @@
     </button>
 
     <!-- Collapse Toggle for Options Panel -->
-    <div class="mesh-sidebar-toggle" onclick="Meshtastic.toggleOptionsPanel()">
+    <button type="button" class="mesh-sidebar-toggle" onclick="Meshtastic.toggleOptionsPanel()" style="color: inherit; font: inherit; text-align: left; width: 100%;">
         <span class="mesh-sidebar-toggle-icon" id="meshSidebarIcon">▶</span>
         <span class="mesh-sidebar-toggle-text">Meshtastic Options</span>
-    </div>
+    </button>
 
     <!-- Collapsible Content -->
     <div class="mesh-sidebar-content" id="meshSidebarContent">
@@ -74,7 +74,7 @@
                 </div>
 
                 <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 10px; margin-bottom: 10px;">
-                    <strong style="color: #00ff88; font-size: 12px;">Recommended Upgrades</strong>
+                    <strong style="color: var(--neon-green); font-size: 12px;">Recommended Upgrades</strong>
                     <ul style="margin: 6px 0 0 14px; padding: 0;">
                         <li><strong style="color: var(--text-primary);">Whip antenna:</strong> ~$8&ndash;15, tuned 915/868 MHz, SMA connector</li>
                         <li><strong style="color: var(--text-primary);">Ground plane:</strong> 8.2 cm vertical + 4 radials (915 MHz) on SMA</li>
@@ -138,11 +138,11 @@
             <div class="signal-details-section">
                 <div class="signal-details-title">Channel Settings</div>
                 <div class="form-group" style="margin-bottom: 12px;">
-                    <label style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Channel Name (max 12 chars)</label>
+                    <label for="meshModalChannelName" style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Channel Name (max 12 chars)</label>
                     <input type="text" id="meshModalChannelName" maxlength="12" placeholder="MyChannel" style="width: 100%;">
                 </div>
                 <div class="form-group" style="margin-bottom: 12px;">
-                    <label style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Encryption (PSK)</label>
+                    <label for="meshModalPskFormat" style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Encryption (PSK)</label>
                     <select id="meshModalPskFormat" onchange="Meshtastic.onPskFormatChange()" style="width: 100%; margin-bottom: 8px;">
                         <option value="keep">Keep Current</option>
                         <option value="none">None (No Encryption)</option>
@@ -153,9 +153,9 @@
                         <option value="hex">Hex Key (0x...)</option>
                     </select>
                     <div id="meshModalPskInputContainer" style="display: none;">
-                        <input type="text" id="meshModalPskValue" placeholder="Enter key..." style="width: 100%;">
+                        <input type="text" id="meshModalPskValue" placeholder="Enter key..." aria-label="PSK encryption key" style="width: 100%;">
                     </div>
-                    <div id="meshModalPskWarning" style="display: none; background: rgba(255,193,7,0.1); border: 1px solid var(--accent-yellow); border-radius: 4px; padding: 8px; margin-top: 8px; font-size: 10px;">
+                    <div id="meshModalPskWarning" style="display: none; background: var(--accent-orange-10); border: 1px solid var(--accent-yellow); border-radius: 4px; padding: 8px; margin-top: 8px; font-size: 10px;">
                         <strong style="color: var(--accent-yellow);">Warning:</strong>
                         <span style="color: var(--text-secondary);">The default key is publicly known and provides no security.</span>
                     </div>

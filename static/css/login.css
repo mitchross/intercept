@@ -100,6 +100,15 @@
     box-sizing: border-box; /* Crucial for visibility */
 }
 
+.form-input:focus {
+    border-color: var(--accent-cyan);
+}
+
+.form-input:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+}
+
 .landing-enter-btn {
     width: 100%;
     background: transparent;
@@ -110,7 +119,7 @@
     font-weight: 600;
     letter-spacing: 3px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background var(--transition-slow), color var(--transition-slow), box-shadow var(--transition-slow);
     box-sizing: border-box;
 }
 

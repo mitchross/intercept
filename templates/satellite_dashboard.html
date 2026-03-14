@@ -613,7 +613,7 @@
                 const time = pass.startTime.split(' ')[1] || pass.startTime;
 
                 return `
-                    <div class="pass-item ${selectedPass === idx ? 'active' : ''}" onclick="selectPass(${idx})">
+                    <button type="button" class="pass-item ${selectedPass === idx ? 'active' : ''}" onclick="selectPass(${idx})" style="color: inherit; font: inherit; text-align: left; width: 100%;">
                         <div class="pass-item-header">
                             <span class="pass-sat-name">${pass.satellite}</span>
                             <span class="pass-quality ${quality}">${qualityText}</span>
@@ -622,7 +622,7 @@
                             <span class="pass-time">${time}</span>
                             <span>${pass.maxEl.toFixed(0)}° · ${pass.duration} min</span>
                         </div>
-                    </div>
+                    </button>
                 `;
             }).join('');
         }

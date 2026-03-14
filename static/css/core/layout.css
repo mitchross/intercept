@@ -193,7 +193,7 @@
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast);
     white-space: nowrap;
 }
 
@@ -231,7 +231,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4px);
-    transition: all var(--transition-fast);
+    transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
     z-index: var(--z-dropdown);
 }
 
@@ -252,7 +252,7 @@
     text-decoration: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast);
     border: none;
     background: none;
     width: 100%;
@@ -303,7 +303,7 @@
     border-radius: var(--radius-md);
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast);
     text-decoration: none;
 }
 
@@ -355,7 +355,7 @@
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .mobile-nav-btn:hover,
@@ -385,7 +385,7 @@
     height: 2px;
     background: var(--text-secondary);
     border-radius: 1px;
-    transition: all var(--transition-fast);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .hamburger-btn.open span:nth-child(1) {
@@ -624,7 +624,7 @@
     z-index: calc(var(--z-fixed) - 1);
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition-base);
+    transition: opacity var(--transition-base), visibility var(--transition-base);
 }
 
 .drawer-overlay.visible {
@@ -726,7 +726,7 @@
     font-size: 11px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
     text-decoration: none;
 }
 
@@ -774,7 +774,7 @@
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .nav-action-btn .nav-label {
@@ -809,7 +809,7 @@
     font-size: 11px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .mode-nav-dropdown-btn .nav-label {
@@ -874,7 +874,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
-    transition: all var(--transition-fast);
+    transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast);
     z-index: var(--z-dropdown);
     padding: 6px;
     backdrop-filter: blur(10px);
@@ -973,7 +973,7 @@
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1062,7 +1062,7 @@ a.nav-dashboard-btn:visited {
     font-size: 11px;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
     white-space: nowrap;
     text-decoration: none;
 }

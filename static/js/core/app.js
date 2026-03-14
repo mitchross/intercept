@@ -415,11 +415,11 @@ function initMobileNav() {
     overlay.addEventListener('click', closeDrawer);
 
     // Close drawer when resizing to desktop
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', throttle(() => {
         if (window.innerWidth >= 1024) {
             closeDrawer();
         }
-    });
+    }, 150));
 
     // Expose for external use
     window.toggleMobileDrawer = toggleDrawer;
@@ -488,7 +488,7 @@ function initApp() {
 
     // Set viewport height for mobile browsers
     setViewportHeight();
-    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('resize', throttle(setViewportHeight, 150));
 }
 
 // Run initialization when DOM is ready

@@ -10,7 +10,7 @@
     <div class="section">
         <h3>Settings</h3>
         <div class="form-group">
-            <label>Region / Frequency Band</label>
+            <label for="radiosondeRegionSelect">Region / Frequency Band</label>
             <select id="radiosondeRegionSelect" onchange="updateRadiosondeFreqRange()">
                 <option value="global" selected>Global (400&ndash;406 MHz)</option>
                 <option value="eu">Europe (400&ndash;403 MHz)</option>
@@ -22,13 +22,13 @@
         <div class="form-group" id="radiosondeCustomFreqGroup" style="display: none;">
             <label>Frequency Range (MHz)</label>
             <div style="display: flex; gap: 8px; align-items: center;">
-                <input type="number" id="radiosondeFreqMin" value="400.0" min="380" max="410" step="0.1" style="width: 50%;" placeholder="Min">
+                <input type="number" id="radiosondeFreqMin" value="400.0" min="380" max="410" step="0.1" style="width: 50%;" placeholder="Min" aria-label="Minimum frequency">
                 <span style="color: var(--text-dim);">&ndash;</span>
-                <input type="number" id="radiosondeFreqMax" value="406.0" min="380" max="410" step="0.1" style="width: 50%;" placeholder="Max">
+                <input type="number" id="radiosondeFreqMax" value="406.0" min="380" max="410" step="0.1" style="width: 50%;" placeholder="Max" aria-label="Maximum frequency">
             </div>
         </div>
         <div class="form-group">
-            <label>Gain (dB, 0 = auto)</label>
+            <label for="radiosondeGainInput">Gain (dB, 0 = auto)</label>
             <input type="number" id="radiosondeGainInput" value="40" min="0" max="50" placeholder="0-50">
         </div>
     </div>
@@ -448,7 +448,7 @@
                 dist = `${(distM / 1000).toFixed(1)} km`;
             }
             return `
-                <div class="radiosonde-card" onclick="radiosondeMap && radiosondeMap.setView([${b.lat || 0}, ${b.lon || 0}], 10)">
+                <button type="button" class="radiosonde-card" onclick="radiosondeMap && radiosondeMap.setView([${b.lat || 0}, ${b.lon || 0}], 10)" style="color: inherit; font: inherit; text-align: left;" aria-label="Center map on radiosonde ${b.id}">
                     <div class="radiosonde-card-header">
                         <span class="radiosonde-serial">${b.id}</span>
                         <span class="radiosonde-type">${b.sonde_type || '??'}</span>
@@ -483,7 +483,7 @@
                             <span class="radiosonde-stat-label">DIST</span>
                         </div>
                     </div>
-                </div>
+                </button>
             `;
         }).join('');
     }

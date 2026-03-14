@@ -52,7 +52,7 @@
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .mesh-hide-sidebar-btn:hover {
@@ -91,7 +91,7 @@
     font-family: var(--font-mono);
     font-size: 10px;
     color: var(--text-secondary);
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     pointer-events: auto;
     z-index: 100;
     position: relative;
@@ -128,7 +128,7 @@
     border-radius: 6px;
     cursor: pointer;
     margin-bottom: 12px;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .mesh-sidebar-toggle:hover {
@@ -153,7 +153,7 @@
 
 .mesh-sidebar-content {
     display: block;
-    transition: all 0.2s ease;
+    transition: opacity var(--transition-base);
 }
 
 /* Collapsed state */
@@ -289,7 +289,7 @@
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .mesh-strip-btn.connect {
@@ -307,7 +307,7 @@
 }
 
 .mesh-strip-btn.disconnect:hover {
-    background: #ff1a53;
+    background: var(--neon-red);
 }
 
 .mesh-strip-divider {
@@ -400,7 +400,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay-light);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -471,12 +471,12 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: #00ffff;  /* Bright cyan for maximum visibility */
+    background: var(--accent-cyan);
     border: 3px solid #ffffff;
     border-radius: 50%;
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.6),
-        0 0 20px 8px rgba(0, 255, 255, 0.7),  /* Strong outer glow */
+        0 0 20px 8px rgba(74, 163, 255, 0.7),  /* Strong outer glow */
         inset 0 0 8px rgba(255, 255, 255, 0.3);  /* Inner highlight */
     color: var(--text-inverse);
     font-family: var(--font-mono);
@@ -486,7 +486,7 @@
 }
 
 .mesh-node-marker.local {
-    background: #00ff88;  /* Bright green for local node */
+    background: var(--neon-green);
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.6),
         0 0 20px 8px rgba(0, 255, 136, 0.7),  /* Strong green glow */
@@ -552,7 +552,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--overlay-light);
     border-radius: 4px;
     padding: 10px;
 }
@@ -592,7 +592,7 @@
     border: 1px solid var(--border-color);
     border-radius: 4px;
     margin-bottom: 6px;
-    transition: all 0.15s ease;
+    transition: border-color 0.15s ease;
 }
 
 .mesh-channel-item:hover {
@@ -650,9 +650,9 @@
 }
 
 .mesh-badge-primary {
-    background: rgba(74, 158, 255, 0.15);
+    background: var(--accent-cyan-10);
     color: var(--accent-cyan);
-    border: 1px solid rgba(74, 158, 255, 0.3);
+    border: 1px solid var(--accent-cyan-30);
 }
 
 .mesh-badge-secondary {
@@ -662,13 +662,13 @@
 }
 
 .mesh-badge-encrypted {
-    background: rgba(34, 197, 94, 0.15);
+    background: var(--accent-green-10);
     color: var(--accent-green);
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    border: 1px solid var(--accent-green-30);
 }
 
 .mesh-badge-unencrypted {
-    background: rgba(255, 51, 102, 0.15);
+    background: var(--accent-red-20);
     color: var(--accent-red, #ff3366);
     border: 1px solid rgba(255, 51, 102, 0.3);
 }
@@ -681,7 +681,7 @@
     padding: 4px 8px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     flex-shrink: 0;
 }
 
@@ -763,7 +763,7 @@
     border-left: 3px solid var(--accent-cyan);
     border-radius: 4px;
     padding: 12px 14px;
-    transition: all 0.15s ease;
+    transition: border-color 0.15s ease;
 }
 
 .mesh-message-card:hover {
@@ -937,7 +937,7 @@
 }
 
 .mesh-message-status.failed {
-    background: rgba(255, 51, 102, 0.15);
+    background: var(--accent-red-10);
     color: var(--accent-red, #ff3366);
 }
 
@@ -1089,7 +1089,7 @@
     padding: 10px 14px;
     cursor: pointer;
     color: var(--text-inverse);
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, transform 0.15s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1237,7 +1237,7 @@
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .mesh-traceroute-btn:hover {
@@ -1277,7 +1277,7 @@
 
 .mesh-traceroute-error {
     padding: 16px;
-    background: rgba(255, 51, 102, 0.1);
+    background: var(--accent-red-10);
     border: 1px solid var(--accent-red, #ff3366);
     border-radius: 6px;
     color: var(--accent-red, #ff3366);
@@ -1344,22 +1344,22 @@
 }
 
 .mesh-traceroute-snr.snr-good {
-    background: rgba(34, 197, 94, 0.15);
+    background: var(--accent-green-10);
     color: var(--accent-green);
 }
 
 .mesh-traceroute-snr.snr-ok {
-    background: rgba(74, 158, 255, 0.15);
+    background: var(--accent-cyan-10);
     color: var(--accent-cyan);
 }
 
 .mesh-traceroute-snr.snr-poor {
-    background: rgba(255, 193, 7, 0.15);
+    background: var(--accent-orange-10);
     color: var(--accent-orange);
 }
 
 .mesh-traceroute-snr.snr-bad {
-    background: rgba(255, 51, 102, 0.15);
+    background: var(--accent-red-10);
     color: var(--accent-red, #ff3366);
 }
 
@@ -1407,7 +1407,7 @@
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .mesh-position-btn:hover,
@@ -1430,7 +1430,7 @@
     font-size: 9px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .mesh-qr-btn:hover {
@@ -1567,22 +1567,22 @@
 }
 
 .mesh-network-neighbor-snr.snr-good {
-    background: rgba(34, 197, 94, 0.15);
+    background: var(--accent-green-10);
     color: var(--accent-green);
 }
 
 .mesh-network-neighbor-snr.snr-ok {
-    background: rgba(74, 158, 255, 0.15);
+    background: var(--accent-cyan-10);
     color: var(--accent-cyan);
 }
 
 .mesh-network-neighbor-snr.snr-poor {
-    background: rgba(255, 193, 7, 0.15);
+    background: var(--accent-orange-10);
     color: var(--accent-orange);
 }
 
 .mesh-network-neighbor-snr.snr-bad {
-    background: rgba(255, 51, 102, 0.15);
+    background: var(--accent-red-10);
     color: var(--accent-red, #ff3366);
 }
 
@@ -1600,11 +1600,11 @@
 }
 
 .mesh-badge-success {
-    background: rgba(34, 197, 94, 0.15);
+    background: var(--accent-green-10);
     color: var(--accent-green);
 }
 
 .mesh-badge-warning {
-    background: rgba(255, 193, 7, 0.15);
+    background: var(--accent-orange-10);
     color: var(--accent-orange);
 }

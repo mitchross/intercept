@@ -50,18 +50,18 @@
 }
 
 .gps-status-dot.connected {
-    background: #00ff88;
-    box-shadow: 0 0 6px rgba(0, 255, 136, 0.4);
+    background: var(--neon-green);
+    box-shadow: 0 0 6px var(--neon-green-20);
 }
 
 .gps-status-dot.waiting {
-    background: #ffaa00;
-    box-shadow: 0 0 6px rgba(255, 170, 0, 0.4);
+    background: var(--neon-orange);
+    box-shadow: 0 0 6px var(--accent-orange-20);
 }
 
 .gps-status-dot.error {
-    background: #ff4444;
-    box-shadow: 0 0 6px rgba(255, 68, 68, 0.4);
+    background: var(--accent-red);
+    box-shadow: 0 0 6px var(--accent-red-20);
 }
 
 .gps-status-text {
@@ -81,27 +81,27 @@
 }
 
 .gps-fix-badge.no-fix {
-    background: rgba(255, 68, 68, 0.2);
-    color: #ff4444;
-    border: 1px solid rgba(255, 68, 68, 0.3);
+    background: var(--accent-red-20);
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red-20);
 }
 
 .gps-fix-badge.fix-2d {
-    background: rgba(255, 170, 0, 0.2);
-    color: #ffaa00;
-    border: 1px solid rgba(255, 170, 0, 0.3);
+    background: var(--accent-orange-20);
+    color: var(--neon-orange);
+    border: 1px solid var(--accent-orange-20);
 }
 
 .gps-fix-badge.fix-3d {
-    background: rgba(0, 255, 136, 0.2);
-    color: #00ff88;
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    background: var(--neon-green-20);
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green-20);
 }
 
 /* DOP quality indicators */
-.gps-dop-good { color: #00ff88; }
-.gps-dop-moderate { color: #ffaa00; }
-.gps-dop-poor { color: #ff4444; }
+.gps-dop-good { color: var(--neon-green); }
+.gps-dop-moderate { color: var(--neon-orange); }
+.gps-dop-poor { color: var(--accent-red); }
 
 /* ===== Visuals Panel ===== */
 
@@ -364,10 +364,10 @@
 }
 
 /* Constellation colors */
-.gps-const-gps { background-color: #00d4ff; }
-.gps-const-glonass { background-color: #00ff88; }
-.gps-const-galileo { background-color: #ff8800; }
-.gps-const-beidou { background-color: #ff4466; }
+.gps-const-gps { background-color: var(--accent-cyan); }
+.gps-const-glonass { background-color: var(--neon-green); }
+.gps-const-galileo { background-color: var(--neon-orange); }
+.gps-const-beidou { background-color: var(--neon-red); }
 .gps-const-sbas { background-color: #ffdd00; }
 .gps-const-qzss { background-color: #cc66ff; }
 

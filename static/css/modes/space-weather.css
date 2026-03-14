@@ -126,12 +126,12 @@
 }
 
 /* Scale severity colors */
-.sw-scale-0 { color: var(--neon-green); border-color: #00ff8833; }
-.sw-scale-1 { color: #88ff00; border-color: #88ff0033; }
-.sw-scale-2 { color: var(--neon-yellow); border-color: #ffcc0033; }
-.sw-scale-3 { color: var(--neon-orange); border-color: #ff880033; }
-.sw-scale-4 { color: #ff4400; border-color: #ff440033; }
-.sw-scale-5 { color: var(--neon-red); border-color: #ff004433; }
+.sw-scale-0 { color: var(--neon-green); border-color: var(--neon-green-20); }
+.sw-scale-1 { color: var(--severity-low); border-color: var(--neon-green-20); }
+.sw-scale-2 { color: var(--severity-medium); border-color: rgba(255, 204, 0, 0.2); }
+.sw-scale-3 { color: var(--neon-orange); border-color: var(--accent-orange-20); }
+.sw-scale-4 { color: var(--severity-high); border-color: var(--accent-orange-20); }
+.sw-scale-5 { color: var(--neon-red); border-color: var(--accent-red-20); }
 
 [data-theme="light"] .sw-scale-1 { color: #5a8a00; }
 [data-theme="light"] .sw-scale-4 { color: #cc3300; }
@@ -183,9 +183,9 @@
     font-weight: 600;
 }
 
-.sw-band-good { color: var(--neon-green); background: #00ff8815; }
-.sw-band-fair { color: var(--neon-yellow); background: #ffcc0015; }
-.sw-band-poor { color: var(--neon-red); background: #ff336615; }
+.sw-band-good { color: var(--neon-green); background: var(--neon-green-dim); }
+.sw-band-fair { color: var(--neon-yellow); background: rgba(255, 204, 0, 0.08); }
+.sw-band-poor { color: var(--neon-red); background: var(--accent-red-10); }
 
 /* 2-column dashboard grid */
 .sw-dashboard-grid {
@@ -269,7 +269,7 @@
     font-weight: 600;
     cursor: pointer;
     font-family: var(--font-mono, 'Roboto Condensed', monospace);
-    transition: all 0.2s;
+    transition: border-color var(--transition-base), color var(--transition-base), background var(--transition-base);
 }
 
 .sw-image-tab:hover {
@@ -317,7 +317,7 @@
     font-size: 10px;
     cursor: pointer;
     font-family: var(--font-mono, 'Roboto Condensed', monospace);
-    transition: all 0.2s;
+    transition: border-color var(--transition-base), color var(--transition-base);
 }
 
 .sw-drap-freq-btn:hover {

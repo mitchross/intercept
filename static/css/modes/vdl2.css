@@ -23,7 +23,7 @@
     animation: vdl2FadeIn 0.3s ease;
 }
 .vdl2-msg:hover {
-    background: rgba(74, 158, 255, 0.05);
+    background: var(--accent-cyan-10);
 }
 @keyframes vdl2FadeIn {
     from { opacity: 0; transform: translateY(-3px); }

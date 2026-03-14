@@ -116,7 +116,7 @@
     background: var(--bg-card);
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .signal-filter-btn:hover {
@@ -172,7 +172,7 @@
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
-    transition: all 0.2s ease;
+    transition: background var(--transition-base), border-color var(--transition-base);
     position: relative;
     overflow: hidden;
     animation: cardSlideIn 0.25s ease;
@@ -509,7 +509,7 @@
     padding: 4px 6px;
     margin: -4px -6px;
     border-radius: 4px;
-    transition: all 0.15s;
+    transition: color 0.15s, background 0.15s;
 }
 
 .signal-advanced-toggle:hover {
@@ -547,7 +547,7 @@
     padding: 5px 8px;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 
 .signal-action-btn:hover {
@@ -783,7 +783,7 @@
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     z-index: 10000;
     opacity: 0;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .signal-toast.show {
@@ -871,7 +871,7 @@
     border: 1px solid var(--border-color);
     border-radius: 4px;
     outline: none;
-    transition: all 0.15s;
+    transition: border-color 0.15s, background 0.15s;
 }
 
 .signal-search-input::placeholder {
@@ -1425,7 +1425,7 @@
 
 .signal-station-clickable {
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     position: relative;
 }
 
@@ -1589,7 +1589,7 @@
     border-radius: 4px;
     color: var(--text-inverse);
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .station-raw-copy-btn:hover {
@@ -1640,7 +1640,7 @@
    ============================================ */
 .signal-card.signal-card-clickable {
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .signal-card.signal-card-clickable:hover {
@@ -1679,7 +1679,7 @@
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 
 .signal-card-actions-float .signal-action-btn:hover {
@@ -1796,7 +1796,7 @@
     border-radius: 4px;
     color: var(--text-inverse);
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .signal-details-copy-btn:hover {

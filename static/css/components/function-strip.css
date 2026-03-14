@@ -173,7 +173,7 @@
     font-size: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: background var(--transition-base), border-color var(--transition-base);
     white-space: nowrap;
 }
 
@@ -236,6 +236,7 @@
 .function-strip .status-dot.decoding {
     background: var(--accent-cyan);
     animation: strip-pulse 1.5s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .function-strip .status-dot.listening,
@@ -243,11 +244,13 @@
 .function-strip .status-dot.receiving {
     background: var(--accent-green);
     animation: strip-pulse 1.5s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .function-strip .status-dot.sweeping {
     background: var(--accent-orange);
     animation: strip-pulse 1s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .function-strip .status-dot.error {

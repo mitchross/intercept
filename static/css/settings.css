@@ -7,7 +7,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--bg-overlay);
     z-index: 10000;
     overflow-y: auto;
     backdrop-filter: blur(4px);
@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px var(--overlay-medium);
 }
 
 .settings-header {
@@ -266,7 +266,7 @@
 }
 
 .toggle-switch input:focus + .toggle-slider {
-    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 0 2px var(--accent-cyan-30);
 }
 
 /* Select Dropdown */
@@ -342,17 +342,17 @@
 }
 
 .asset-badge.available {
-    background: rgba(0, 255, 136, 0.15);
+    background: var(--neon-green-dim);
     color: var(--accent-green, #00ff88);
 }
 
 .asset-badge.missing {
-    background: rgba(255, 68, 68, 0.15);
+    background: var(--accent-red-10);
     color: var(--accent-red, #ff4444);
 }
 
 .asset-badge.checking {
-    background: rgba(255, 170, 0, 0.15);
+    background: var(--accent-orange-10);
     color: var(--accent-orange, #ffaa00);
 }
 
@@ -366,7 +366,7 @@
     font-size: 12px;
     cursor: pointer;
     margin-top: 12px;
-    transition: all 0.2s;
+    transition: border-color var(--transition-base), color var(--transition-base);
 }
 
 .check-assets-btn:hover {
@@ -435,13 +435,13 @@
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(212, 168, 83, 0.3);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), filter var(--transition-base);
+    box-shadow: 0 2px 8px var(--accent-orange-20);
 }
 
 .donate-btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
+    box-shadow: 0 4px 12px var(--accent-orange-20);
     filter: brightness(1.1);
 }
 
@@ -461,8 +461,8 @@
 
 /* Info Callout */
 .settings-info {
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: var(--accent-cyan-10);
+    border: 1px solid var(--accent-cyan-20);
     border-radius: 6px;
     padding: 12px;
     margin-top: 16px;

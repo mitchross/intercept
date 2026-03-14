@@ -2,10 +2,10 @@
                 <div id="tscmMode" class="mode-content">
                     <!-- Configuration -->
                     <div class="section">
-                        <h3>TSCM Sweep <span style="font-size: 9px; font-weight: normal; background: var(--accent-orange); color: #000; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px;">Alpha</span></h3>
+                        <h3>TSCM Sweep <span style="font-size: 9px; font-weight: normal; background: var(--accent-orange); color: var(--text-inverse); padding: 2px 6px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px;">Alpha</span></h3>
 
                         <div class="form-group">
-                            <label>Sweep Type</label>
+                            <label for="tscmSweepType">Sweep Type</label>
                             <select id="tscmSweepType">
                                 <option value="quick">Quick Scan (2 min)</option>
                                 <option value="standard" selected>Standard (5 min)</option>
@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Compare Against</label>
+                            <label for="tscmBaselineSelect">Compare Against</label>
                             <select id="tscmBaselineSelect">
                                 <option value="">No Baseline</option>
                             </select>
@@ -37,7 +37,7 @@
                                     <input type="checkbox" id="tscmWifiEnabled" checked>
                                     WiFi
                                 </label>
-                                <select id="tscmWifiInterface" style="margin-top: 4px;">
+                                <select id="tscmWifiInterface" aria-label="WiFi interface" style="margin-top: 4px;">
                                     <option value="">Select WiFi interface...</option>
                                 </select>
                             </div>
@@ -46,7 +46,7 @@
                                     <input type="checkbox" id="tscmBtEnabled" checked>
                                     Bluetooth
                                 </label>
-                                <select id="tscmBtInterface" style="margin-top: 4px;">
+                                <select id="tscmBtInterface" aria-label="Bluetooth adapter" style="margin-top: 4px;">
                                     <option value="">Select Bluetooth adapter...</option>
                                 </select>
                             </div>
@@ -55,7 +55,7 @@
                                     <input type="checkbox" id="tscmRfEnabled" checked>
                                     RF/SDR
                                 </label>
-                                <select id="tscmSdrDevice" style="margin-top: 4px;">
+                                <select id="tscmSdrDevice" aria-label="SDR device" style="margin-top: 4px;">
                                     <option value="">Select SDR device...</option>
                                 </select>
                             </div>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
 
-                    <button class="preset-btn" id="tscmReportBtn" onclick="generateTscmReport()" style="display: none; width: 100%; margin-top: 8px; background: var(--accent-cyan); color: #000; font-weight: 600;">
+                    <button class="preset-btn" id="tscmReportBtn" onclick="generateTscmReport()" style="display: none; width: 100%; margin-top: 8px; background: var(--accent-cyan); color: var(--text-inverse); font-weight: 600;">
                         Generate Report
                     </button>
 
@@ -113,7 +113,7 @@
                         <div style="margin-bottom: 16px;">
                             <label style="display: block; font-size: 11px; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Baseline Recording</label>
                             <div class="form-group">
-                                <input type="text" id="tscmBaselineName" placeholder="Baseline name...">
+                                <input type="text" id="tscmBaselineName" placeholder="Baseline name..." aria-label="Baseline name">
                             </div>
                             <button class="run-btn" id="tscmRecordBaselineBtn" onclick="tscmRecordBaseline()" style="width: 100%; padding: 8px;">
                                 Record New Baseline
@@ -130,7 +130,7 @@
                                 No active meeting
                             </div>
                             <div class="form-group">
-                                <input type="text" id="tscmMeetingName" placeholder="Meeting name (optional)">
+                                <input type="text" id="tscmMeetingName" placeholder="Meeting name (optional)" aria-label="Meeting name">
                             </div>
                             <button class="run-btn" id="tscmStartMeetingBtn" onclick="tscmStartMeeting()" style="width: 100%; padding: 8px;">
                                 Start Meeting Window
@@ -173,7 +173,7 @@
                     </div>
 
                     <!-- Device Warnings -->
-                    <div id="tscmDeviceWarnings" style="display: none; margin-top: 8px; padding: 8px; background: rgba(255,153,51,0.1); border: 1px solid rgba(255,153,51,0.3); border-radius: 4px;"></div>
+                    <div id="tscmDeviceWarnings" style="display: none; margin-top: 8px; padding: 8px; background: var(--accent-orange-10); border: 1px solid var(--accent-orange-20); border-radius: 4px;"></div>
 
                     <div class="mode-actions-bottom">
                         <button class="run-btn" id="startTscmBtn" onclick="startTscmSweep()">

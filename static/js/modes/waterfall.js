@@ -988,7 +988,7 @@ const Waterfall = (function () {
     function _setSmeter(levelPct, text) {
         const bar = document.getElementById('wfSmeterBar');
         const label = document.getElementById('wfSmeterText');
-        if (bar) bar.style.width = `${_clamp(levelPct, 0, 100).toFixed(1)}%`;
+        if (bar) bar.style.transform = `scaleX(${(_clamp(levelPct, 0, 100) / 100).toFixed(4)})`;
         if (label) label.textContent = text || 'S0';
     }
 
@@ -2134,9 +2134,9 @@ const Waterfall = (function () {
         const sq = document.getElementById('wfMonitorSquelch');
         const sqValue = document.getElementById('wfMonitorSquelchValue');
         if (sq) {
-            sq.addEventListener('input', () => {
+            sq.addEventListener('input', throttle(() => {
                 if (sqValue) sqValue.textContent = String(parseInt(sq.value, 10) || 0);
-            });
+            }, 50));
             sq.addEventListener('change', () => {
                 if (_monitoring) _queueMonitorAdjust(180);
             });
@@ -2145,10 +2145,10 @@ const Waterfall = (function () {
         const gain = document.getElementById('wfMonitorGain');
         const gainValue = document.getElementById('wfMonitorGainValue');
         if (gain) {
-            gain.addEventListener('input', () => {
+            gain.addEventListener('input', throttle(() => {
                 const g = parseInt(gain.value, 10) || 0;
                 if (gainValue) gainValue.textContent = String(g);
-            });
+            }, 50));
             gain.addEventListener('change', () => {
                 if (_monitoring) _queueMonitorAdjust(180, { allowSharedTune: false });
             });
@@ -2157,22 +2157,22 @@ const Waterfall = (function () {
         const vol = document.getElementById('wfMonitorVolume');
         const volValue = document.getElementById('wfMonitorVolumeValue');
         if (vol) {
-            vol.addEventListener('input', () => {
+            vol.addEventListener('input', throttle(() => {
                 const v = parseInt(vol.value, 10) || 0;
                 if (volValue) volValue.textContent = String(v);
                 const player = document.getElementById('wfAudioPlayer');
                 if (player) player.volume = v / 100;
-            });
+            }, 50));
         }
 
         const scanThreshold = document.getElementById('wfScanThreshold');
         const scanThresholdValue = document.getElementById('wfScanThresholdValue');
         if (scanThreshold) {
-            scanThreshold.addEventListener('input', () => {
+            scanThreshold.addEventListener('input', throttle(() => {
                 const v = parseInt(scanThreshold.value, 10) || 0;
                 if (scanThresholdValue) scanThresholdValue.textContent = String(v);
                 if (_scanConfig) _scanConfig.threshold = _clamp(v, 0, 255);
-            });
+            }, 50));
             if (scanThresholdValue) {
                 scanThresholdValue.textContent = String(parseInt(scanThreshold.value, 10) || 0);
             }
@@ -2203,7 +2203,7 @@ const Waterfall = (function () {
             });
         }
 
-        window.addEventListener('resize', _resizeCanvases);
+        window.addEventListener('resize', throttle(_resizeCanvases, 150));
     }
 
     function _selectedDevice() {

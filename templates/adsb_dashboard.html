@@ -3195,7 +3195,7 @@ sudo make install</code>
             container.innerHTML = `
                 <div id="aircraftPhotoContainer" style="display:none;margin-bottom:10px;">
                     <a id="aircraftPhotoLink" href="#" target="_blank" rel="noopener">
-                        <img id="aircraftPhoto" src="" alt="Aircraft photo" style="width:100%;border-radius:6px;border:1px solid #333;">
+                        <img id="aircraftPhoto" src="" alt="Aircraft photo" loading="lazy" style="width:100%;border-radius:6px;border:1px solid #333;">
                     </a>
                     <div id="aircraftPhotoCredit" style="font-size:9px;color:#666;margin-top:2px;text-align:right;"></div>
                 </div>
@@ -3209,7 +3209,7 @@ sudo make install</code>
                     </div>
                     <div class="telemetry-item">
                         <div class="telemetry-label">Squawk</div>
-                        <div class="telemetry-value squawk-clickable" onclick="showSquawkInfo('${squawk}')" title="Click for squawk info">${squawk}</div>
+                        <button type="button" class="telemetry-value squawk-clickable" onclick="showSquawkInfo('${squawk}')" title="Click for squawk info" style="background: none; border: none; cursor: pointer; padding: 0; font: inherit;">${squawk}</button>
                     </div>
                     <div class="telemetry-item">
                         <div class="telemetry-label">Lat</div>
@@ -3518,8 +3518,12 @@ sudo make install</code>
 
                 const meterFill = document.getElementById('airbandSignalMeter');
                 const meterPeak = document.getElementById('airbandSignalPeak');
-                if (meterFill) meterFill.style.width = levelPercent + '%';
-                if (meterPeak) meterPeak.style.left = Math.min(airbandPeakLevel, 100) + '%';
+                if (meterFill) meterFill.style.transform = 'scaleX(' + (levelPercent / 100) + ')';
+                if (meterPeak) {
+                    const peakPct = Math.min(airbandPeakLevel, 100);
+                    const parentW = meterPeak.parentElement ? meterPeak.parentElement.offsetWidth : 0;
+                    meterPeak.style.transform = 'translateX(' + (peakPct / 100 * parentW) + 'px)';
+                }
 
                 // Draw spectrum
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
@@ -3547,8 +3551,8 @@ sudo make install</code>
 
             const meterFill = document.getElementById('airbandSignalMeter');
             const meterPeak = document.getElementById('airbandSignalPeak');
-            if (meterFill) meterFill.style.width = '0%';
-            if (meterPeak) meterPeak.style.left = '0%';
+            if (meterFill) meterFill.style.transform = 'scaleX(0)';
+            if (meterPeak) meterPeak.style.transform = 'translateX(0)';
             airbandPeakLevel = 0;
 
             const container = document.getElementById('airbandVisualizerContainer');

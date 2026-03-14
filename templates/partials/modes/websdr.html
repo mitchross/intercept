@@ -4,12 +4,12 @@
                         <h3>WebSDR</h3>
 
                         <div class="form-group">
-                            <label>Frequency (kHz)</label>
+                            <label for="websdrFrequency">Frequency (kHz)</label>
                             <input type="number" id="websdrFrequency" value="6500" step="1" style="width: 100%;">
                         </div>
 
                         <div class="form-group">
-                            <label>Mode</label>
+                            <label for="websdrMode_select">Mode</label>
                             <select id="websdrMode_select">
                                 <option value="usb">USB</option>
                                 <option value="lsb">LSB</option>
@@ -29,7 +29,7 @@
                     <!-- Audio Player -->
                     <div class="section" style="margin-top: 12px;">
                         <h3>Audio Player</h3>
-                        <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 10px;">
+                        <div style="background: var(--overlay-light); border-radius: 6px; padding: 10px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                                 <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Status</span>
                                 <span id="kiwiStatus" style="font-size: 11px; color: var(--text-muted);">DISCONNECTED</span>
@@ -42,7 +42,7 @@
                             <!-- S-meter -->
                             <div style="margin-bottom: 8px;">
                                 <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">S-Meter</span>
-                                <div style="height: 8px; background: rgba(0,0,0,0.5); border-radius: 4px; margin-top: 3px; overflow: hidden;">
+                                <div style="height: 8px; background: var(--overlay-medium); border-radius: 4px; margin-top: 3px; overflow: hidden;">
                                     <div id="kiwiSmeterBar" style="height: 100%; width: 0%; background: linear-gradient(to right, var(--accent-green), var(--accent-orange), var(--accent-red)); transition: width 0.2s; border-radius: 4px;"></div>
                                 </div>
                                 <div style="text-align: right; font-size: 9px; color: var(--text-muted); margin-top: 2px;">
@@ -52,7 +52,7 @@
                             <!-- Volume -->
                             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                                 <span style="font-size: 10px; color: var(--text-muted);">VOL</span>
-                                <input type="range" id="kiwiVolume" min="0" max="100" value="80" style="flex: 1;" oninput="setKiwiVolume(this.value)">
+                                <input type="range" id="kiwiVolume" min="0" max="100" value="80" style="flex: 1;" oninput="setKiwiVolume(this.value)" aria-label="Audio volume">
                             </div>
                             <button id="kiwiDisconnectBtn" class="stop-btn" onclick="disconnectFromReceiver()" style="width: 100%; display: none;">
                                 Disconnect

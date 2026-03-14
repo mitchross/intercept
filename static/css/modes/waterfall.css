@@ -1,7 +1,7 @@
 /* Spectrum Waterfall Mode Styles */
 
 .wf-container {
-    --wf-border: rgba(92, 153, 255, 0.24);
+    --wf-border: var(--accent-cyan-20);
     --wf-surface: linear-gradient(180deg, rgba(12, 19, 31, 0.97) 0%, rgba(5, 9, 17, 0.98) 100%);
     display: flex;
     flex-direction: column;
@@ -276,10 +276,13 @@
 .wf-rx-smeter-fill {
     position: absolute;
     inset: 0 auto 0 0;
-    width: 0%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
     background: linear-gradient(90deg, rgba(86, 243, 146, 0.75) 0%, rgba(255, 208, 94, 0.78) 64%, rgba(255, 118, 118, 0.82) 100%);
     box-shadow: 0 0 10px rgba(97, 229, 255, 0.35);
-    transition: width 90ms linear;
+    transition: transform 90ms linear;
+    will-change: transform;
 }
 
 .wf-rx-smeter-text {
