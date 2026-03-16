@@ -174,7 +174,7 @@ read_env_var() {
   local fallback="${2:-}"
   if [[ -f "$SCRIPT_DIR/.env" ]]; then
     local val
-    val=$(grep -E "^${key}=" "$SCRIPT_DIR/.env" 2>/dev/null | tail -1 | cut -d'=' -f2-)
+    val=$(grep -E "^${key}=" "$SCRIPT_DIR/.env" 2>/dev/null | tail -1 | cut -d'=' -f2- || true)
     if [[ -n "$val" ]]; then
       # Strip surrounding quotes
       val="${val#\"}"
@@ -751,9 +751,26 @@ install_acarsdec_from_source_macos() {
 
     cd "$tmp_dir/acarsdec"
 
+    # Replace deprecated -Ofast (all macOS, not just arm64)
+    if grep -q '\-Ofast' CMakeLists.txt 2>/dev/null; then
+      sed -i '' 's/-Ofast/-O3 -ffast-math/g' CMakeLists.txt
+      info "Patched deprecated -Ofast flag"
+    fi
+
+    # macOS doesn't have -march=native on arm64
     if [[ "$(uname -m)" == "arm64" ]]; then
-      sed -i '' 's/-Ofast -march=native/-O3 -ffast-math/g' CMakeLists.txt
-      info "Patched compiler flags for Apple Silicon (arm64)"
+      sed -i '' 's/ -march=native//g' CMakeLists.txt
+      info "Removed -march=native for Apple Silicon"
+    fi
+
+    # HOST_NAME_MAX is Linux-specific; macOS uses _POSIX_HOST_NAME_MAX
+    if grep -q 'HOST_NAME_MAX' acarsdec.c 2>/dev/null; then
+      sed -i '' '1i\
+#ifndef HOST_NAME_MAX\
+#define HOST_NAME_MAX 255\
+#endif
+' acarsdec.c
+      info "Patched HOST_NAME_MAX for macOS compatibility"
     fi
 
     if grep -q 'pthread_tryjoin_np' rtl.c 2>/dev/null; then
@@ -957,8 +974,14 @@ install_satdump_from_source_debian() {
     ) &
     progress_pid=$!
 
+    local arch_flags=""
+    if [[ "$(uname -m)" == "x86_64" ]]; then
+      arch_flags="-march=x86-64"
+    fi
+
     if cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_GUI=OFF -DCMAKE_INSTALL_LIBDIR=lib \
-        -DCMAKE_CXX_FLAGS="-Wno-template-body" .. >"$build_log" 2>&1 \
+        -DCMAKE_C_FLAGS="$arch_flags" \
+        -DCMAKE_CXX_FLAGS="$arch_flags -Wno-template-body" .. >"$build_log" 2>&1 \
         && make -j "$(nproc)" >>"$build_log" 2>&1; then
       kill $progress_pid 2>/dev/null; wait $progress_pid 2>/dev/null
       $SUDO make install >/dev/null 2>&1
@@ -1918,7 +1941,18 @@ do_health_check() {
   info "SDR device detection..."
   if cmd_exists rtl_test; then
     local rtl_output
-    rtl_output=$(timeout 3 rtl_test -d 0 2>&1 || true)
+    if cmd_exists timeout; then
+      rtl_output=$(timeout 3 rtl_test -d 0 2>&1 || true)
+    elif cmd_exists gtimeout; then
+      rtl_output=$(gtimeout 3 rtl_test -d 0 2>&1 || true)
+    else
+      # No timeout command (common on macOS) — run with background kill
+      rtl_test -d 0 > /tmp/.rtl_test_out 2>&1 & local rtl_pid=$!
+      sleep 2
+      kill "$rtl_pid" 2>/dev/null; wait "$rtl_pid" 2>/dev/null
+      rtl_output=$(cat /tmp/.rtl_test_out 2>/dev/null || true)
+      rm -f /tmp/.rtl_test_out
+    fi
     if echo "$rtl_output" | grep -q "Found\|Using device"; then
       ok "RTL-SDR device detected"
       ((pass++)) || true

@@ -7,10 +7,66 @@ import os
 import sys
 
 # Application version
-VERSION = "2.26.2"
+VERSION = "2.26.12"
 
 # Changelog - latest release notes (shown on welcome screen)
 CHANGELOG = [
+    {
+        "version": "2.26.12",
+        "date": "March 2026",
+        "highlights": [
+            "AIS and ADS-B dashboards now use configured observer position from .env",
+        ]
+    },
+    {
+        "version": "2.26.11",
+        "date": "March 2026",
+        "highlights": [
+            "APRS map now centres on configured observer position from .env",
+        ]
+    },
+    {
+        "version": "2.26.8",
+        "date": "March 2026",
+        "highlights": [
+            "Fix acarsdec build failure on macOS (HOST_NAME_MAX undefined)",
+        ]
+    },
+    {
+        "version": "2.26.7",
+        "date": "March 2026",
+        "highlights": [
+            "Fix health check SDR detection on macOS (timeout command not available)",
+        ]
+    },
+    {
+        "version": "2.26.6",
+        "date": "March 2026",
+        "highlights": [
+            "Fix oversized branded 'i' logo on Aircraft & Vessel dashboards",
+        ]
+    },
+    {
+        "version": "2.26.5",
+        "date": "March 2026",
+        "highlights": [
+            "Fix database errors crashing the entire UI — pages now degrade gracefully",
+        ]
+    },
+    {
+        "version": "2.26.4",
+        "date": "March 2026",
+        "highlights": [
+            "Fix Environment Configurator crash when .env exists but variable is missing",
+        ]
+    },
+    {
+        "version": "2.26.3",
+        "date": "March 2026",
+        "highlights": [
+            "Fix SatDump AVX2 crash on older CPUs — build now targets baseline x86-64",
+        ]
+    },
     {
         "version": "2.26.2",
         "date": "March 2026",

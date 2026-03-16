@@ -2,6 +2,69 @@
 
 All notable changes to iNTERCEPT will be documented in this file.
 
+## [2.26.11] - 2026-03-14
+
+### Fixed
+- **APRS map ignores configured observer position** — The APRS map always fell back to the centre of the US (39.8°N, 98.6°W) when no live GPS fix was available, ignoring the observer position configured in `.env` (`INTERCEPT_DEFAULT_LAT` / `INTERCEPT_DEFAULT_LON`). Now seeds the APRS user location from the shared observer location on page load, so the map centres correctly and distance calculations work. (#193)
+
+---
+
+## [2.26.10] - 2026-03-14
+
+### Fixed
+- **APRS stop timeout and inverted SDR device status** — The APRS stop endpoint terminated two processes sequentially (up to 4s) while the frontend timed out at 2.2s, causing console errors and the SDR status panel to show stale state (active after stop, idle during use). Now releases the SDR device immediately and terminates processes in a background thread so the response returns instantly. (#194)
+
+---
+
+## [2.26.9] - 2026-03-14
+
+### Fixed
+- **ADS-B bias-t support for RTL-SDR Blog V4** — When dump1090 lacks native `--enable-biast` support, the system now falls back to `rtl_biast` (from RTL-SDR Blog drivers) to enable bias-t power before starting dump1090. The Blog V4's built-in LNA requires bias-t to receive ADS-B signals. (#195)
+
+---
+
+## [2.26.8] - 2026-03-14
+
+### Fixed
+- **acarsdec build failure on macOS** — `HOST_NAME_MAX` is Linux-specific (`<limits.h>`) and undefined on macOS, causing 3 compile errors in `acarsdec.c`. Now patched with `#define HOST_NAME_MAX 255` before building. Also fixed deprecated `-Ofast` flag warning on all macOS architectures (was only patched for arm64). (#187)
+
+---
+
+## [2.26.7] - 2026-03-14
+
+### Fixed
+- **Health check SDR detection on macOS** — `timeout` (GNU coreutils) is not available on macOS, causing `rtl_test` to silently fail and report "No RTL-SDR device found" even when one is connected. Now tries `timeout`, then `gtimeout` (Homebrew coreutils), then falls back to a background process with manual kill. (#188)
+
+---
+
+## [2.26.6] - 2026-03-14
+
+### Fixed
+- **Oversized branded 'i' logo on dashboards** — `.logo span { display: inline }` in dashboard CSS had higher specificity (0,1,1) than `.brand-i { display: inline-block }` (0,1,0), forcing the branded "i" SVG to render as inline which ignores width/height. Added `.logo .brand-i` selector (0,2,0) to retain `inline-block` display. (#189)
+
+---
+
+## [2.26.5] - 2026-03-14
+
+### Fixed
+- **Database errors crash entire UI** — `get_setting()` now catches `sqlite3.OperationalError` and returns the default value instead of propagating the exception. Previously, if the database was inaccessible (e.g. root-owned `instance/` directory from running with `sudo`), the `inject_offline_settings` context processor would crash every page render with a 500 Internal Server Error. (#190)
+
+---
+
+## [2.26.4] - 2026-03-14
+
+### Fixed
+- **Environment Configurator crash** — `read_env_var()` crashed with "Setup failed at line 2333" when `.env` existed but didn't contain the variable being looked up. `grep` returned exit code 1 (no match), which `pipefail` propagated and `set -e` turned into a fatal error. Fixed by appending `|| true` to the pipeline. (#191)
+
+---
+
+## [2.26.3] - 2026-03-13
+
+### Fixed
+- **SatDump AVX2 crash** — SatDump now compiles with `-march=x86-64` on x86_64 platforms (Docker and `setup.sh`), preventing "Illegal instruction" crashes on CPUs without AVX2. SIMD plugins still use runtime detection for acceleration on capable hardware. (#185)
+
+---
+
 ## [2.26.2] - 2026-03-13
 
 ### Fixed
