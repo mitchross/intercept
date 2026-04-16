@@ -295,8 +295,9 @@ class WeatherSatDecoder:
             # Security: restrict offline decode inputs to application-owned
             # capture directories so external paths cannot be injected.
             try:
-                resolved = input_path.resolve()
-                if not any(resolved.is_relative_to(base) for base in ALLOWED_OFFLINE_INPUT_DIRS):
+                resolved = input_path.resolve(strict=False)
+                allowed_dirs = tuple(base.resolve(strict=False) for base in ALLOWED_OFFLINE_INPUT_DIRS)
+                if not any(resolved.is_relative_to(base) for base in allowed_dirs):
                     logger.warning(f"Path traversal blocked in start_from_file: {input_file}")
                     msg = 'Input file must be under INTERCEPT data or ground-station recordings'
                     self._emit_progress(CaptureProgress(
@@ -304,6 +305,7 @@ class WeatherSatDecoder:
                         message=msg,
                     ))
                     return False, msg
+                input_path = resolved
             except (OSError, ValueError):
                 msg = 'Invalid file path'
                 self._emit_progress(CaptureProgress(

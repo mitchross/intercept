@@ -436,7 +436,7 @@ def get_sdr_device_status() -> dict[str, str]:
 
 @app.before_request
 def require_login():
-    # Skip auth entirely when INTERCEPT_DISABLE_AUTH is set
+    # Development-only escape hatch for local installs/tests; never enable in production.
     if os.environ.get('INTERCEPT_DISABLE_AUTH', '').lower() in ('1', 'true', 'yes'):
         session['logged_in'] = True
         return None

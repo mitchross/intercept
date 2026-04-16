@@ -711,6 +711,8 @@ const WeatherSat = (function() {
         }
 
         try {
+            // Pull a wider pass window so the scheduler/timeline can stay populated
+            // across low-elevation and next-day passes without extra round trips.
             const url = `/weather-sat/passes?latitude=${storedLat}&longitude=${storedLon}&hours=48&min_elevation=5&trajectory=true&ground_track=true`;
             const response = await fetch(url);
             const data = await response.json();
@@ -1560,6 +1562,8 @@ const WeatherSat = (function() {
         const hours = [0, 6, 12, 18, 24];
         const spans = labels.querySelectorAll('span');
         if (spans.length !== hours.length) return;
+        const selectedTimezone = typeof InterceptTime !== 'undefined' ? InterceptTime.getTimezone() : 'UTC';
+        const timezoneMap = (typeof InterceptTime !== 'undefined' && InterceptTime.TZ_MAP) ? InterceptTime.TZ_MAP : {};
 
         hours.forEach((h, i) => {
             if (selectedTimezone === 'UTC' || selectedTimezone === 'local') {
@@ -1568,7 +1572,7 @@ const WeatherSat = (function() {
                 // Show timezone-adjusted labels
                 const d = new Date();
                 d.setHours(h, 0, 0, 0);
-                const tz = TZ_MAP[selectedTimezone];
+                const tz = timezoneMap[selectedTimezone];
                 const opts = { hour: '2-digit', minute: '2-digit', hour12: false };
                 if (tz) opts.timeZone = tz;
                 if (h === 24) {
