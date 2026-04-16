@@ -436,6 +436,11 @@ def get_sdr_device_status() -> dict[str, str]:
 
 @app.before_request
 def require_login():
+    # Development-only escape hatch for local installs/tests; never enable in production.
+    if os.environ.get('INTERCEPT_DISABLE_AUTH', '').lower() in ('1', 'true', 'yes'):
+        session['logged_in'] = True
+        return None
+
     # Routes that don't require login (to avoid infinite redirect loop)
     allowed_routes = ["login", "static", "favicon", "health", "health_check"]
 
@@ -489,7 +494,6 @@ def login():
             flash("ACCESS DENIED: INVALID CREDENTIALS", "error")
 
     return render_template("login.html", version=VERSION)
-
 
 @app.route("/")
 def index() -> str:
