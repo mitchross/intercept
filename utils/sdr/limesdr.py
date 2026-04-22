@@ -140,9 +140,7 @@ class LimeSDRCommandBuilder(CommandBuilder):
         device: SDRDevice,
         gain: float | None = None,
         bias_t: bool = False,
-        tcp_port: int = 10110,
-        udp_host: str | None = None,
-        udp_port: int | None = None,
+        tcp_port: int = 10110
     ) -> list[str]:
         """
         Build AIS-catcher command for AIS vessel tracking with LimeSDR.
@@ -162,9 +160,6 @@ class LimeSDRCommandBuilder(CommandBuilder):
 
         if gain is not None and gain > 0:
             cmd.extend(['-gr', 'tuner', str(int(gain))])
-
-        if udp_host and udp_port:
-            cmd.extend(['-u', udp_host, str(udp_port)])
 
         return cmd
 
