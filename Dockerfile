@@ -197,8 +197,10 @@ RUN cd /tmp \
     && rm -rf /tmp/radiosonde_auto_rx
 
 # Build rtlamr (utility meter decoder - requires Go)
+# Go 1.22.5 ships a stdlib with CVE-2025-68121 (CRITICAL); 1.24.13/1.25.7 are the
+# first patched releases, so pin the current stable toolchain instead.
 RUN cd /tmp \
-    && curl -fsSL "https://go.dev/dl/go1.22.5.linux-$(dpkg --print-architecture).tar.gz" | tar -C /usr/local -xz \
+    && curl -fsSL "https://go.dev/dl/go1.27.1.linux-$(dpkg --print-architecture).tar.gz" | tar -C /usr/local -xz \
     && export PATH="$PATH:/usr/local/go/bin" \
     && export GOPATH=/tmp/gopath \
     && go install github.com/bemasher/rtlamr@latest \
